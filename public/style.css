@@ -3,7 +3,7 @@ html, body {
     background-color: #fafafa;
     padding: 2em 5em;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* HEADER */
@@ -14,12 +14,14 @@ html, body {
     width: 100%;
     top: 0;
     z-index: 99; 
+    border-bottom: 0.1em #931a25 solid;
 }
 
 /* logo */
 #Navbar #Logo img {
     width: 50px;
     transition: 0.4s;
+    padding-bottom: 2em;
 }
 
 /* navbar links */
@@ -36,14 +38,12 @@ html, body {
   
   /* Links on mouse-over */
   #Navbar div a:hover {
-    background-color: #931a25;
-    color: #fafafa;
+    color: #931a25;
   }
   
   /* Style the active/current link */
   #Navbar a.active {
-    background-color: #931a25;
-    color: white;
+    color: #931a25;
   }
   
   /* Display some links to the right */
