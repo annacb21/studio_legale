@@ -10,7 +10,7 @@
         <title>Studio Legale Turlon</title>
         <link rel="stylesheet" type="text/css" href="../public/style.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
     </head>
     <body>
 

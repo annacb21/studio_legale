@@ -1,7 +1,7 @@
 /* HTML AND BODY */
 html, body {
   background-color: #fafafa;
-  padding: 2em 5em;
+  padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
@@ -11,7 +11,7 @@ html, body {
 /* Navbar container */
 #navbar {
   overflow: hidden;
-  width: 100%;
+  padding: 3em 5em 2em 5em;
   top: 0;
   z-index: 99; 
   border-bottom: 0.1em #931a25 solid;
@@ -35,7 +35,6 @@ html, body {
 
 #dropdown {
   display: inline-block;
-  overflow: hidden;
 }
 
 #navbar-items {
@@ -92,7 +91,7 @@ html, body {
   
 /* CAROUSEL */
 /* Slideshow container */
-.slideshow-container {
+#slideshow-container {
   position: relative;
   margin: auto;
 }
@@ -108,7 +107,7 @@ html, body {
 }
 
 /* Next & previous buttons */
-.prev, .next {
+#prev, #next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -124,13 +123,13 @@ html, body {
 }
 
 /* Position the "next button" to the right */
-.next {
+#next {
   right: 0;
   border-radius: 0.3em 0 0 0.3em;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+#prev:hover, #next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -154,7 +153,7 @@ html, body {
 }
 
 /* The dots/bullets/indicators */
-.dot-container {
+#dot-container {
   text-align: center;
 }
 
@@ -189,4 +188,72 @@ html, body {
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
+}
+
+/* MAIN PAGE DESCRIPTION */
+#desc-container {
+  padding: 3em 5em 2em 5em;
+}
+
+#desc-container h1 {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+#desc-container p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 2em;
+}
+
+/* FOOTER */
+#footer {
+  bottom: 0;
+  background-color: #931a25;
+  text-align: left;
+  padding: 1.5em 5em;
+  color: #FFF;
+}
+
+#footer p {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+#footer-left, #footer-center, #footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#footer-left {
+  width: 40%;
+}
+
+#footer-left #footer-title {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+#footer-left div {
+  margin-top: 2em;
+}
+
+#footer #footer-left div a {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  background-color:  #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+#footer-center {
+  width: 35%;
 }
