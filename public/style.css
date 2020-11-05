@@ -190,22 +190,46 @@ html, body {
   to {opacity: 1}
 }
 
-/* MAIN PAGE DESCRIPTION */
-#desc-container {
-  padding: 3em 5em 2em 5em;
+/* MAIN PAGE CONTENT */
+#main-grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-content: center;
 }
 
-#desc-container h1 {
+#studio-container, #founder-container, #activities-container, #articles-container {
+  padding: 2em 5em;
+}
+
+.main-conatiner-title {
   font-size: 2em;
   font-weight: 200;
+  color: #931a25;
 }
 
-#desc-container p {
+#studio-container p, #founder-container p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-align: justify;
   line-height: 2em;
 }
+
+.info-link {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  border-bottom: 0.1em #931a25 solid;
+  display: block;
+  padding-bottom: 0.5em;
+  color: #931a25;
+}
+
+.info-link i {
+  font-size: 1.5em;
+  float: right;
+}
+
 
 /* FOOTER */
 #footer {
