@@ -4,23 +4,31 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
 }
 
 /* NAVBAR */
 /* Navbar container */
 #navbar {
   overflow: hidden;
-  padding: 3em 5em 2em 5em;
+  position: fixed;
+  padding: 3em 2em;
+  background-color: #fafafa;
+  width: 100%;
   top: 0;
+  right: 0;
   z-index: 99; 
   border-bottom: 0.1em #931a25 solid;
+  transition: 0.4s;
+}
+
+#logo {
+  transition: 0.4s;
+  padding-bottom: 2em;
+  margin-left: 5em;
 }
 
 #logo img {
   width: 50px;
-  transition: 0.4s;
-  padding-bottom: 2em;
 }
 
 /* navbar links */
@@ -94,6 +102,8 @@ html, body {
 #slideshow-container {
   position: relative;
   margin: auto;
+  top: 7em;
+  width: 100%;
 }
 
 /* Hide the images by default */
@@ -143,35 +153,6 @@ html, body {
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
-.slide_number {
-  color: #f2f2f2;
-  font-size: 1em;
-  padding: 1.5em;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-#dot-container {
-  text-align: center;
-}
-
-.dot {
-  cursor: pointer;
-  height: 1em;
-  width: 1em;
-  margin: 0 0.3em;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.slide_active, .dot:hover {
-  background-color: #717171;
-}
-
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -192,6 +173,8 @@ html, body {
 
 /* MAIN PAGE CONTENT */
 #main-grid-container {
+  position: relative;
+  top: 5em;
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
@@ -233,7 +216,9 @@ html, body {
 
 /* FOOTER */
 #footer {
+  position: relative;
   bottom: 0;
+  margin-top: 5em;
   background-color: #931a25;
   text-align: left;
   padding: 1.5em 5em;

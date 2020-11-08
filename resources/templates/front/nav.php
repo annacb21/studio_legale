@@ -17,3 +17,5 @@
   </div>
 
 </div>
+
+<script src="../public/navbar.js"></script>
