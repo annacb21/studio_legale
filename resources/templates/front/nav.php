@@ -18,4 +18,4 @@
 
 </div>
 
-<script src="../public/navbar.js"></script>
+<script src="../public/javascript/navbar.js"></script>

@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <script src="carousel.js"></script>
+    <script src="javascript/carousel.js"></script>
 
 <!-- FOOTER -->
 <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
