@@ -177,38 +177,44 @@ html, body {
   top: 5em;
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: space-between;
-  align-content: center;
+  grid-template-rows: auto auto;
+  margin-bottom: 10em;
 }
 
-#studio-container, #founder-container, #activities-container, #articles-container {
+.grid-item {
+  position: relative;
   padding: 2em 5em;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
 }
 
-.main-conatiner-title {
+.grid-title h1 {
   font-size: 2em;
   font-weight: 200;
   color: #931a25;
 }
 
-#studio-container p, #founder-container p {
+.grid-body p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-align: justify;
   line-height: 2em;
 }
 
-.info-link {
+.grid-footer a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1em;
   border-bottom: 0.1em #931a25 solid;
-  display: block;
-  padding-bottom: 0.5em;
   color: #931a25;
+  position: absolute;
+  bottom: 0;
+  left: 5em;
+  right: 5em;
 }
 
-.info-link i {
+.grid-footer a i {
   font-size: 1.5em;
   float: right;
 }
