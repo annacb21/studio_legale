@@ -56,16 +56,16 @@
             </div>
             <div class="grid-body">
                 <ul>
-                    <li><a href="#">Diritti della persona, tutela, amministrazione di sostegno e trust</a></li>
-                    <li><a href="#">Affidamento figli e protezione dei minori a rischio</a></li>
-                    <li><a href="#">Separazioni, divorzi, scioglimento unioni tra persone dello stesso sesso e convivenze</a></li>
-                    <li><a href="#">Successioni ed eredità</a></li>
-                    <li><a href="#">Adozioni e procreazione medicalmente assistita</a></li>
-                    <li><a href="#">Incidenti e omicidi stradali</a></li>
-                    <li><a href="#">Diritto penale della persona, dei minori e della famiglia</a></li>
-                    <li><a href="#">Violenza alle donne, stalking, strumenti di tutela e ordini di protezione a favore del soggetto vulnerabile</a></li>
-                    <li><a href="#">Locazioni, recupero crediti, vendita di beni dei debitori e piani di rientro</a></li>
-                    <li><a href="#">Diritto della navigazione</a></li>
+                    <li><a href="#">Diritti della persona, tutela, amministrazione di sostegno e trust</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Affidamento figli e protezione dei minori a rischio</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Separazioni, divorzi, scioglimento unioni tra persone dello stesso sesso e convivenze</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Successioni ed eredità</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Adozioni e procreazione medicalmente assistita</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Incidenti e omicidi stradali</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Diritto penale della persona, dei minori e della famiglia</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Violenza alle donne, stalking, strumenti di tutela e ordini di protezione a favore del soggetto vulnerabile</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Locazioni, recupero crediti, vendita di beni dei debitori e piani di rientro</a><i class="fa fa-caret-right"></i></li>
+                    <li><a href="#">Diritto della navigazione</a><i class="fa fa-caret-right"></i></li>
                 </ul>
             </div>
             <div class="grid-footer">
