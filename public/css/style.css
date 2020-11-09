@@ -249,7 +249,6 @@ html, body {
   float: right;
 }
 
-
 /* FOOTER */
 #footer {
   position: relative;
@@ -301,4 +300,78 @@ html, body {
 
 #footer-center {
   width: 35%;
+}
+
+/* SEDI PAGE */
+#sedi {
+  position: relative;
+  padding: 3em 4em;
+  top: 7em;
+  margin-bottom: 10em;
+}
+
+.page_title {
+  font-size: 3em;
+  color: #931a25;
+}
+
+#sede-comtainer {
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 3em;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  column-gap: 2em;
+}
+
+#sede-left {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2em;
+  background-color: #931a25;
+}
+
+#sede-info {
+  padding: 1em 3em 1em 0;
+  color: #fafafa;
+}
+
+#sede-info h2 {
+  font-size: 2em;
+}
+
+#sede-right {
+  padding: 0 2em;
+}
+
+#sede-right h3 {
+  color: #931a25;
+  font-size: 2em;
+}
+
+.input-field {
+  padding-bottom: 1.5em;
+}
+
+.input-field label {
+  display: block;
+  padding-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.input-field input[type=text], .input-field select {
+  border-radius: 1em;
+  padding: 1.5em 2em;
+  border: 0.1em #2b2024 solid;
+  width: 100%;
+}
+
+.submitbtn {
+  background-color: #931a25;
+  width: 100%;
+  color: #fafafa;
+  padding: 1.5em 2em;
+  border-radius: 1em;
+  font-size: 1em;
+  border: none;
 }
