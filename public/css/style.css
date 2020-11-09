@@ -9,7 +9,6 @@ html, body {
 /* NAVBAR */
 /* Navbar container */
 #navbar {
-  overflow: hidden;
   position: fixed;
   padding: 3em 2em;
   background-color: #fafafa;
@@ -54,6 +53,7 @@ html, body {
   outline: none;
   background-color: inherit;
   font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
 }
 
 /* Links on mouse-over */
