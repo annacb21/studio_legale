@@ -1,16 +1,13 @@
 <div id="sedi">
     <!-- page title -->
-    <h1 class="page_title">Sede di <?php echo show_sede(); ?></h1>
+    <h1 class="page_title">Sede di <?php echo show_sede_loc(); ?></h1>
     <div id="sede-comtainer">
         <div id="sede-left">
             <div id="sede-img">
                 <img src="images/porta1.jpg" alt="">
             </div>
             <div id="sede-info">
-                <h2><?php echo show_sede(); ?></h2>
-                <p>via Emanuele Filiberto 43</p>
-                <p>35122 Padova PD</p>
-                <p>tel. e fax 049 654313</p>
+                <?php get_sede(); ?>
             </div>
         </div>
         <div id="sede-right">
