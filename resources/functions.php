@@ -36,6 +36,13 @@ function fetch_array($result){
 
 }
 
+// ritorna il path per le immagini
+function display_image($image) {
+
+    return "images" . DS . $image;
+
+}
+
 //*************************** FRONT FUNCTIONS ****************************
 
 // ritorna il body della pagina di admin
@@ -124,7 +131,7 @@ echo $activities;
 
 }
 
-// ritorna la lista delle aree di attività
+// ritorna le card delle attività
 function get_activities_card(){
 
 $query = query("SELECT * FROM activities");
@@ -133,7 +140,7 @@ confirm($query);
 while($row = fetch_array($query)) {
 
 $activities = <<<DELIMETER
-<div class="card {$row['activity_id']}">
+<div class="card">
     <div class="card_title">
         <p>{$row['activity_name']}</p>
     </div>
@@ -145,6 +152,38 @@ $activities = <<<DELIMETER
 DELIMETER;
 
 echo $activities;
+
+}
+
+}
+
+// ritorna le card del team 
+function get_team_card(){
+
+$query = query("SELECT * FROM members");
+confirm($query);
+
+while($row = fetch_array($query)) {
+
+$img = display_image($row['member_img']); 
+
+$team = <<<DELIMETER
+<div class="card">
+    <img src="../public/{$img}" alt="Foto team">
+    <div class="card_title">
+        <h2>{$row['member_name']}</h2>
+    </div>
+    <div class="card_desc">
+        <p>{$row['member_role']}</p>
+        <p>{$row['member_email1']}</p>
+        <p>{$row['member_email2']}</p>
+        <p>{$row['member_desc']}</p> 
+    </div>
+    <a href="../public/index.php?team&id={$row['member_id']}'">Vedi curriculum</a>
+</div>
+DELIMETER;
+
+echo $team;
 
 }
 
