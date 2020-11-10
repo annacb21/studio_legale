@@ -27,7 +27,7 @@
             <p>Lo studio legale Turlon è diretto dall'Avvocato Federica Turlon, iscritta all'Albo degli Avvocati di Roma. Il legale svolge la propria attività negli studi di Roma e Padova. Vanta una specifica competenza in tema di tutela della persona, dei minori e della famiglia in tutte le sue articolazioni, con riferimento agli aspetti personali, relazionali, economici e successori. Lo studio inoltre ha maturato una solida esperienza nell'assistenza e nella consulenza di tutte le altre aree del diritto civile e del diritto penale, con particolare riferimento alla tutela del minore vittima e autore di reato e in generale all'assistenza legale degli autori e delle persone offese di maltrattamenti e abusi fisici, psicologici, sessuali ed economici.Una particolare attenzione è altresì dedicata ai soggetti vulnerabili, con disabilità e alla persona anziana, anche quali vittime di maltrattamenti e violenze domestiche. L’attività è volta ad individuare le migliori soluzioni in relazione al singolo caso concreto considerando tempi, costi e benefici di ogni singola proposta con particolare attenzione all’incidenza delle problematiche e della possibile soluzione sugli aspetti personali, familiari e patrimoniali del cliente.</p>
         </div>
         <div class="grid-footer">
-            <a href="#">Approfondisci<i class="fa fa-arrow-circle-right"></i></a>
+            <a href="../public/index.php?sedi&id=1">Approfondisci<i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- info about the founder of the studio -->
@@ -50,16 +50,7 @@
         </div>
         <div class="grid-body">
             <ul>
-                <li><a href="#">Diritti della persona, tutela, amministrazione di sostegno e trust</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Affidamento figli e protezione dei minori a rischio</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Separazioni, divorzi, scioglimento unioni tra persone dello stesso sesso e convivenze</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Successioni ed eredità</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Adozioni e procreazione medicalmente assistita</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Incidenti e omicidi stradali</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Diritto penale della persona, dei minori e della famiglia</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Violenza alle donne, stalking, strumenti di tutela e ordini di protezione a favore del soggetto vulnerabile</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Locazioni, recupero crediti, vendita di beni dei debitori e piani di rientro</a><i class="fa fa-caret-right"></i></li>
-                <li><a href="#">Diritto della navigazione</a><i class="fa fa-caret-right"></i></li>
+                <?php get_activities_list(); ?>
             </ul>
         </div>
         <div class="grid-footer">

@@ -375,3 +375,47 @@ html, body {
   font-size: 1em;
   border: none;
 }
+
+
+/* ACTIVITIES PAGE */
+#activities {
+  position: relative;
+  padding: 3em 4em;
+  top: 7em;
+  margin-bottom: 10em;
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 2em;
+  margin: 1.5em auto;
+  width: 300px;
+  border-radius: 2em;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.card a {
+  font-weight: bold;
+  color: #931a25;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: scale(0.95, 0.95);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}

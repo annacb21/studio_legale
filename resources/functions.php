@@ -106,7 +106,49 @@ echo $sede;
 
 }
     
+// ritorna la lista delle aree di attività
+function get_activities_list(){
+
+$query = query("SELECT * FROM activities");
+confirm($query);
+
+while($row = fetch_array($query)) {
+
+$activities = <<<DELIMETER
+<li><a href="../public/index.php?activities&id={$row['activity_id']}'">{$row['activity_name']}</a><i class="fa fa-caret-right"></i></li>
+DELIMETER;
+
+echo $activities;
+
+}
+
+}
+
+// ritorna la lista delle aree di attività
+function get_activities_card(){
+
+$query = query("SELECT * FROM activities");
+confirm($query);
+
+while($row = fetch_array($query)) {
+
+$activities = <<<DELIMETER
+<div class="card {$row['activity_id']}">
+    <div class="card_title">
+        <p>{$row['activity_name']}</p>
+    </div>
+    <div class="card_desc">
+        <p>{$row['activity_short_desc']}</p>
+    </div>
+    <a href="../public/index.php?activities&id={$row['activity_id']}'">Approfondisci</a>
+</div>
+DELIMETER;
+
+echo $activities;
+
+}
+
+}
 
 
-
- ?>
+?>
