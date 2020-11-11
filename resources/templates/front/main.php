@@ -1,3 +1,5 @@
+<?php $acts = get_activities(); ?>
+
 <!-- CAROUSEL -->
 <div id="slideshow-container">
     <!-- Full-width images with number and caption text -->
@@ -50,7 +52,11 @@
         </div>
         <div class="grid-body">
             <ul>
-                <?php get_activities_list(); ?>
+                <?php
+                    for($i = 0; $i < count($acts); $i++) {
+                        echo "<li><a href='../public/index.php?activities&id={$acts[$i]->get_id()}''>{$acts[$i]->get_name()}</a><i class='fa fa-caret-right'></i></li>";
+                    }
+                 ?>
             </ul>
         </div>
         <div class="grid-footer">

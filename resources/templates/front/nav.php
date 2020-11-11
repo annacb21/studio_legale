@@ -1,3 +1,4 @@
+<?php $sedi = get_sedi(); ?>
 <div id="navbar">
 
   <a href="../public/index.php" id="logo"><img src="../public/images/logo.png" alt="logo studio legale Turlon"></a>

@@ -1,4 +1,6 @@
 <?php $sede = get_sede($_GET['id']); ?>
+<?php $sedi = get_sedi(); ?>
+<?php $acts = get_activities(); ?>
 
 <div id="sedi">
     <!-- page title -->
@@ -31,24 +33,22 @@
                 <div class="input-field">
                     <label for="sede">Sede dell'appuntamento</label>
                     <select name="sede" id="sede">
-                        <option value="padova">Padova</option>
-                        <option value="roma">Roma</option>
+                        <?php
+                            for($i = 0; $i < count($sedi); $i++) {
+                                echo "<option value='{$sedi[$i]->get_city()}'>{$sedi[$i]->get_city()}</option>";
+                            }
+                         ?>
                     </select>
                 </div>
 
                 <div class="input-field">
                     <label for="area">Area di consulenza</label>
                     <select name="area" id="area">
-                        <option value="diritto">Diritti della persona, tutela, amministrazione di sostegno e trust</option>
-                        <option value="affidamento">Affidamento figli e protezione dei minori a rischio</option>
-                        <option value="separazioni">Separazioni, divorzi, scioglimento unioni tra persone dello stesso sesso e convivenze</option>
-                        <option value="successioni">Successioni ed eredità</option>
-                        <option value="adozioni">Adozioni e procreazione medicalmente assistita</option>
-                        <option value="incidenti">Incidenti e omicidi stradali</option>
-                        <option value="penale">Diritto penale della persona, dei minori e della famiglia</option>
-                        <option value="violenza">Violenza alle donne, stalking, strumenti di tutela e ordini di protezione a favore del soggetto vulnerabile</option>
-                        <option value="locazioni">Locazioni, recupero crediti, vendita di beni dei debitori e piani di rientro</option>
-                        <option value="navigazione">Diritto della navigazione</option>
+                        <?php
+                            for($i = 0; $i < count($acts); $i++) {
+                                echo "<option value='{$acts[$i]->get_id()}'>{$acts[$i]->get_name()}</option>";
+                            }
+                        ?>
                     </select>
                 </div>
 

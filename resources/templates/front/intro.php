@@ -14,6 +14,5 @@
     </head>
     <body>
     
-    <?php $sedi = get_sedi(); ?>
     <!-- HEADER -->
     <?php include(TEMPLATE_FRONT . DS . "nav.php"); ?>

@@ -1,4 +1,5 @@
 <?php require_once("Sede.php"); ?>
+<?php require_once("Activity.php"); ?>
 
 <?php
 
@@ -112,51 +113,41 @@ function get_sedi() {
 
 }
 
-//*************************** FRONT FUNCTIONS ****************************
-    
-// ritorna la lista delle aree di attività
-function get_activities_list(){
+//*************************** Activity class functions ****************************
 
-$query = query("SELECT * FROM activities");
-confirm($query);
+function get_activity($id) {
 
-while($row = fetch_array($query)) {
+    $query = query("SELECT * FROM activities WHERE activity_id={$id}");
+    confirm($query);
+    $row = fetch_array($query);
 
-$activities = <<<DELIMETER
-<li><a href="../public/index.php?activities&id={$row['activity_id']}'">{$row['activity_name']}</a><i class="fa fa-caret-right"></i></li>
-DELIMETER;
+    $name = $row['activity_name'];
+    $short = $row['activity_short_desc'];
+    $long = $row['activity_long_desc'];
 
-echo $activities;
+    $activity = new Activity($id, $name, $short, $long);
 
-}
+    return $activity;
 
 }
 
-// ritorna le card delle attività
-function get_activities_card(){
+function get_activities() {
 
-$query = query("SELECT * FROM activities");
-confirm($query);
+    $query = query("SELECT * FROM activities");
+    confirm($query);
 
-while($row = fetch_array($query)) {
+    $list = array();
 
-$activities = <<<DELIMETER
-<div class="card">
-    <div class="card_title">
-        <p>{$row['activity_name']}</p>
-    </div>
-    <div class="card_desc">
-        <p>{$row['activity_short_desc']}</p>
-    </div>
-    <a href="../public/index.php?activities&id={$row['activity_id']}'">Approfondisci</a>
-</div>
-DELIMETER;
+    while($row = fetch_array($query)) {
+        $a_id = $row['activity_id'];
+        array_push($list, get_activity($a_id));
+    }
 
-echo $activities;
+    return $list;
 
 }
 
-}
+//*************************** Team class functions ****************************
 
 // ritorna le card del team 
 function get_team_card(){
