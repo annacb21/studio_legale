@@ -92,7 +92,25 @@ function show_sede_loc() {
 
 }
 
-// ritorna l'indirizzo delle sedi in formato html per la pagina Sedi
+// ritorna la lista delle sedi
+function get_sede_list(){
+
+$query = query("SELECT * FROM studies");
+confirm($query);
+
+while($row = fetch_array($query)) {
+
+$sede = <<<DELIMETER
+<a href="../public/index.php?sedi&id={$row['study_id']}">{$row['study_city']}</a>
+DELIMETER;
+
+echo $sede;
+
+}
+
+}
+
+// ritorna l'indirizzo della sede
 function get_sede(){
 
 $query = query("SELECT * FROM studies WHERE study_id =" . escape_string($_GET['id']) . " ");

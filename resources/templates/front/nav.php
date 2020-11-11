@@ -6,8 +6,7 @@
     <div id="dropdown">
       <button>Sedi <i class="fa fa-caret-down"></i></button>
       <div id="dropdown-content">
-        <a href="../public/index.php?sedi&id=1">Padova</a>
-        <a href="../public/index.php?sedi&id=2">Roma</a>
+        <?php get_sede_list(); ?>
       </div>
     </div>
     <a href="../public/index.php?activities">Aree di attività</a>
