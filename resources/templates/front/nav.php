@@ -6,7 +6,11 @@
     <div id="dropdown">
       <button>Sedi <i class="fa fa-caret-down"></i></button>
       <div id="dropdown-content">
-        <?php get_sede_list(); ?>
+        <?php 
+          for($i = 0; $i < count($sedi); $i++) {
+            echo "<a href='../public/index.php?sedi&id={$sedi[$i]->get_id()}'>{$sedi[$i]->get_city()}</a>";
+          }
+         ?>
       </div>
     </div>
     <a href="../public/index.php?activities">Aree di attività</a>

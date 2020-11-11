@@ -1,3 +1,5 @@
+<?php require_once("Sede.php"); ?>
+
 <?php
 
 //*************************** SYSTEM FUNCTIONS ****************************
@@ -74,62 +76,43 @@ function show_main_content() {
 
 }
 
-// mostra il nome della sede
-function show_sede_loc() {
+//*************************** Sede class functions ****************************
+// crea la sede dal database
+function get_sede($id) {
 
-    $page_title = " ";
+    $query = query("SELECT * FROM studies WHERE study_id={$id}");
+    confirm($query);
+    $row = fetch_array($query);
 
-    if(isset($_GET['id'])) {
-        if($_GET['id'] == 1) {
-            $page_title = "Padova";
-        }
-        else {
-            $page_title = "Roma";
-        }
+    $s_city = $row['study_city'];
+    $s_adress = $row['study_adress'];
+    $s_cap = $row['study_cap'];
+    $s_phone = $row['study_phone'];
+
+    $sede = new Sede($id, $s_city, $s_adress, $s_cap, $s_phone);
+
+    return $sede;
+
+}
+
+// ritorna la lista con le sedi
+function get_sedi() {
+
+    $query = query("SELECT * FROM studies");
+    confirm($query);
+
+    $list = array();
+
+    while($row = fetch_array($query)) {
+        $s_id = $row['study_id'];
+        array_push($list, get_sede($s_id));
     }
 
-    return $page_title;
+    return $list;
 
 }
 
-// ritorna la lista delle sedi
-function get_sede_list(){
-
-$query = query("SELECT * FROM studies");
-confirm($query);
-
-while($row = fetch_array($query)) {
-
-$sede = <<<DELIMETER
-<a href="../public/index.php?sedi&id={$row['study_id']}">{$row['study_city']}</a>
-DELIMETER;
-
-echo $sede;
-
-}
-
-}
-
-// ritorna l'indirizzo della sede
-function get_sede(){
-
-$query = query("SELECT * FROM studies WHERE study_id =" . escape_string($_GET['id']) . " ");
-confirm($query);
-
-while($row = fetch_array($query)) {
-
-$sede = <<<DELIMETER
-<h2>{$row['study_city']}</h2>
-<p>{$row['study_adress']}</p>
-<p>{$row['study_cap']}</p>
-<p>tel. e fax {$row['study_phone']}</p>
-DELIMETER;
-
-echo $sede;
-
-}
-
-}
+//*************************** FRONT FUNCTIONS ****************************
     
 // ritorna la lista delle aree di attività
 function get_activities_list(){

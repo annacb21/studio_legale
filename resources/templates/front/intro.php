@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
     </head>
     <body>
-
+    
+    <?php $sedi = get_sedi(); ?>
     <!-- HEADER -->
     <?php include(TEMPLATE_FRONT . DS . "nav.php"); ?>
