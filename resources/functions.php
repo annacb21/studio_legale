@@ -1,5 +1,6 @@
 <?php require_once("Sede.php"); ?>
 <?php require_once("Activity.php"); ?>
+<?php require_once("Team.php"); ?>
 
 <?php
 
@@ -149,37 +150,40 @@ function get_activities() {
 
 //*************************** Team class functions ****************************
 
-// ritorna le card del team 
-function get_team_card(){
+function get_team($id) {
 
-$query = query("SELECT * FROM members");
-confirm($query);
+    $query = query("SELECT * FROM members WHERE member_id={$id}");
+    confirm($query);
+    $row = fetch_array($query);
 
-while($row = fetch_array($query)) {
+    $name = $row['member_name'];
+    $role = $row['member_role'];
+    $email1 = $row['member_email1'];
+    $email2 = $row['member_email2'];
+    $desc = $row['member_desc'];
+    $img = $row['member_img'];
+    $cv = $row['member_cv'];
 
-$img = display_image($row['member_img']); 
+    $team = new Team($id, $name, $role, $email1, $desc, $img, $cv, $email2);
 
-$team = <<<DELIMETER
-<div class="card">
-    <img src="../public/{$img}" alt="Foto team">
-    <div class="card_title">
-        <h2>{$row['member_name']}</h2>
-    </div>
-    <div class="card_desc">
-        <p>{$row['member_role']}</p>
-        <p>{$row['member_email1']}</p>
-        <p>{$row['member_email2']}</p>
-        <p>{$row['member_desc']}</p> 
-    </div>
-    <a href="../public/index.php?team&id={$row['member_id']}'">Vedi curriculum</a>
-</div>
-DELIMETER;
-
-echo $team;
+    return $team;
 
 }
 
-}
+function get_teams() {
 
+    $query = query("SELECT * FROM members");
+    confirm($query);
+
+    $list = array();
+
+    while($row = fetch_array($query)) {
+        $t_id = $row['member_id'];
+        array_push($list, get_team($t_id));
+    }
+
+    return $list;
+
+}
 
 ?>
