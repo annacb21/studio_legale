@@ -51,6 +51,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contatti</a>
                     </li>
+                    <?php
+                        if(isset($_SESSION['user'])) {
+                            echo "<li class='nav-item'><a href='#' class='nav-link'>Admin</a></li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
