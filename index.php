@@ -1,3 +1,5 @@
+<?php require_once("resources/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,51 +17,7 @@
 <body>
     
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.svg" alt="logo studio legale">
-            </a>
-            <a class="visually-hidden-focusable" href="#studio">Vai al contenuto principale</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Riduci navigazione">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarLinks">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="studioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lo Studio</a>
-                        <ul class="dropdown-menu" aria-labelledby="studioDropdown">
-                            <li><a class="dropdown-item" href="#">Sede di Padova</a></li>
-                            <li><a class="dropdown-item" href="#">Sede di Roma</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Le Aree di Attività</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">I professionisti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pubblicazioni ed eventi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Consulenza Online</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contatti</a>
-                    </li>
-                    <?php
-                        if(isset($_SESSION['user'])) {
-                            echo "<li class='nav-item'><a href='#' class='nav-link'>Admin</a></li>";
-                        }
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include(TEMPLATE_FRONT . DS . "navbar.php"); ?>
 
     <!-- HEADER FOTO -->
     <div class="position-relative">
@@ -157,55 +115,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-dark text-white">
-        <div class="row">
-            <div class="col-lg-4">
-                <div>
-                    <img src="images/logo_light.svg" alt="logo bianco">
-                    <h4 class="d-inline">Studio Legale Turlon</h4>
-                </div>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Lo Studio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Le Aree di Attività</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">I Professionisti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pubblicazioni ed eventi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Consulenza Online</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contatti</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h4>Le nostre sedi</h4>
-                <div>
-                    <a href="#"><h5>Sede di Padova</h5></a>
-                    <p>via Emanuele Filiberto 43</p>
-                    <p>+39 049 654313</p>
-                </div>
-                <div>
-                    <a href="#"><h5>Sede di Roma</h5></a>
-                    <p>via Alessandria 88</p>
-                    <p>+39 0644 4254637</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <h5>Contatti</h5>
-                <p>federica.turlon@studiolegaleturlon.it</p>
-                <p>federica.turlon@servicepec.it</p>
-            </div>
-        </div>
-        <p>P.IVA 09304481006 <span>Privacy Policy</span> <span>Cookie Policy</span></p>
-    </footer>
+    <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 
     <script src="js/active.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
