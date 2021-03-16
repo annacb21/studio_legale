@@ -2,13 +2,13 @@
 
 class Studio {
 
-    public $città;
-    public $indirizzo;
-    public $cap;
-    public $telefono;
+    private $città;
+    private $indirizzo;
+    private $cap;
+    private $telefono;
 
     // constructor
-    function __construct($città, $indirizzo, $cap, $telefono) {
+    public function __construct($città, $indirizzo, $cap, $telefono) {
         $this->città = $città;
         $this->indirizzo = $indirizzo;
         $this->cap = $cap;
@@ -16,23 +16,23 @@ class Studio {
     }
 
     // get the study city
-    function get_city() {
+    public function get_city() {
         return $this->città;
     }
 
     // get the study adress
-    function get_adress() {
+    public function get_adress() {
         return $this->indirizzo;
     }
     
     // get the study cap
-    function get_cap() {
+    public function get_cap() {
         $cityCap = $this->cap . $this->city;
         return $cityCap;
     }
 
     // get the study phone number
-    function get_phone() {
+    public function get_phone() {
         return $this->telefono;
     }
 
