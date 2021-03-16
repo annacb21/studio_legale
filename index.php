@@ -114,10 +114,14 @@
         </div>
     </section>
 
+    <!-- UP BUTTON -->
+    <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
+
     <!-- FOOTER -->
     <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 
     <script src="js/active.js"></script>
+    <script src="js/scrollToTop.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
