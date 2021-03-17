@@ -1,5 +1,6 @@
 <?php
 
+// class def
 class Studio {
 
     private $città;
@@ -37,5 +38,11 @@ class Studio {
     }
 
 }
+
+// class obj
+$padova = new Studio("padova", "via Emanuele Filiberto 43", "35122", "+39 049 654313");
+$roma = new Studio("roma", "via Alessandria 88", "00198", "+39 0644 4254637");
+
+$studi = array($padova, $roma);
 
 ?>
