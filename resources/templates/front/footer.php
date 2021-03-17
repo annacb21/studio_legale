@@ -34,7 +34,7 @@ foreach($studi as $s) {
 $studio = <<<DELIMETER
 
 <div>
-    <a href="sededi{$s->get_city()}"><h5>Sede di {$s->get_city()}</h5></a>
+    <a href="sededi{$s->get_city()}.php"><h5>Sede di {$s->get_city()}</h5></a>
     <p>{$s->get_adress()}</p>
     <p>{$s->get_phone()}</p>
 </div>
