@@ -73,19 +73,14 @@ echo $area;
     <!-- SEZIONE PROFILO -->
     <section>
         <div>
-            <h3 class="d-inline">Avv. Federica Turlon</h3>
+            <h3 class="d-inline"><?php echo $turlon->get_name(); ?></h3>
             <a href="#" role="button" class="btn btn-lg" aria-label="Approfondisci">
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
         <div>
-            <p>
-                L’Avv. <strong>Federica Turlon</strong> si è laureata con lode in Giurisprudenza presso l’Università degli Studi di Padova. 
-                Ha conseguito il titolo di dottore di ricerca in "Studi Giuridici Comparati ed Europei” presso l’Università degli Studi di Trento. 
-                Attualmente è professore a contratto di ‘diritto penale’ e di ‘diritto pubblico del welfare’ presso l’Università degli Studi di Padova. 
-                E’ autrice di diverse pubblicazioni in ambito giuridico penale, minorile e familiare.
-            </p>
-            <img src="images/turlon.jpg" alt="foto Federica Turlon">
+            <p><?php echo $turlon->get_desc(); ?></p>
+            <img src="<?php echo display_file($turlon->get_foto()); ?>" alt="foto <?php echo $turlon->get_name(); ?>">
         </div>
     </section>
 
