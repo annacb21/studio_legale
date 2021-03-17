@@ -7,7 +7,7 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lo Studio</a>
+                    <a class="nav-link" href="lostudio.php">Lo Studio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Le Aree di Attività</a>
@@ -34,7 +34,7 @@ foreach($studi as $s) {
 $studio = <<<DELIMETER
 
 <div>
-    <a href="#"><h5>Sede di {$s->get_city()}</h5></a>
+    <a href="sededi{$s->get_city()}"><h5>Sede di {$s->get_city()}</h5></a>
     <p>{$s->get_adress()}</p>
     <p>{$s->get_phone()}</p>
 </div>
