@@ -38,7 +38,7 @@
         </div>
         <p>
             Lo <strong>Studio Legale Turlon</strong> è diretto dall’Avvocato Federica Turlon, iscritta all’Albo degli Avvocati di Roma.
-            Il legale svolge la propria attività negli studi di <a href="#">Roma</a> e <a href="sededipadova.php">Padova</a>.
+            Il legale svolge la propria attività negli studi di <a href="#">Roma</a> e <a href="sede.php?id=1">Padova</a>.
             Vanta una specifica competenza in tema di tutela della persona, dei <strong>minori</strong> e della <strong>famiglia</strong> in tutte le sue articolazioni, con riferimento agli aspetti personali, relazionali, economici e successori. 
         </p>
     </section>

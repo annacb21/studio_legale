@@ -15,8 +15,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="studioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lo Studio</a>
                     <ul class="dropdown-menu" aria-labelledby="studioDropdown">
-                        <li><a class="dropdown-item" href="sededipadova.php">Sede di Padova</a></li>
-                        <li><a class="dropdown-item" href="#">Sede di Roma</a></li>
+<!-- dropdown studio list via PHP -->
+<?php 
+foreach($studi as $s) {
+$link = <<<DELIMETER
+<li><a class="dropdown-item" href="sede.php?id={$s->get_studio_id()}">Sede di {$s->get_city()}</a></li>
+DELIMETER;
+echo $link;
+}
+?>
+<!-- -->
                     </ul>
                 </li>
                 <li class="nav-item">
