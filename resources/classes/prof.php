@@ -1,6 +1,6 @@
 <?php
 
-require_once("classes/area.php");
+require_once("area.php");
 
 // class def
 class Professionista {
@@ -62,7 +62,10 @@ class Professionista {
 }
 
 // class obj
-$tDesc = "L’Avv. Federica Turlon si è laureata con lode in Giurisprudenza presso l’Università degli Studi di Padova. Ha conseguito il titolo di dottore di ricerca in ‘’Studi Giuridici Comparati ed Europei” presso l’Università degli Studi di Trento. Attualmente è professore a contratto di ‘diritto penale’ e di ‘diritto pubblico del welfare’ presso l’Università degli Studi di Padova. E’ autrice di diverse pubblicazioni in ambito giuridico penale, minorile e familiare.";
+$tDesc = "L’Avv. <strong>Federica Turlon</strong> si è laureata con lode in Giurisprudenza presso l’Università degli Studi di Padova. 
+Ha conseguito il titolo di dottore di ricerca in 'Studi Giuridici Comparati ed Europei' presso l’Università degli Studi di Trento. 
+Attualmente è professore a contratto di ‘diritto penale’ e di ‘diritto pubblico del welfare’ presso l’Università degli Studi di Padova. 
+E’ autrice di diverse pubblicazioni in ambito giuridico penale, minorile e familiare.";
 $tAree = array($a1, $a2, $a3);
 $turlon = new Professionista("1", "Avv. Federica Turlon", "Avvocato Fondatore dello Studio", "turlon.jpg", $tDesc, "cv", $tAree);
 
