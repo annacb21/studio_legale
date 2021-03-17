@@ -1,9 +1,19 @@
-<?php require_once("resources/config.php"); ?>
+<?php 
+require_once("resources/config.php"); 
+if(isset($_GET['id'])) {
+    if($_GET['id'] == "1") {
+        $title = "Padova";
+    } 
+    else {
+        $title = "Roma";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Lo Studio | Studio Legale Turlon</title>
+    <title>Sede di <?php echo $title ?> | Studio Legale Turlon</title>
     <meta charset="utf-8">
     <meta name="description" content="Lo Studio Legale Turlon è diretto dall'Avv. Federica Turlon, con sede a Roma e Padova. Competenza nella tutela della persona, dei minori e della famiglia."/>
     <meta name="keywords" content="studio legale turlon, studio legale, avv, avvocato, Federica Turlon, famiglia, minori, Roma, Padova, consulenza, consulenza online"/>
