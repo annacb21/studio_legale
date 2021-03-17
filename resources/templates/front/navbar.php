@@ -15,7 +15,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="studioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lo Studio</a>
                     <ul class="dropdown-menu" aria-labelledby="studioDropdown">
-                        <li><a class="dropdown-item" href="#">Sede di Padova</a></li>
+                        <li><a class="dropdown-item" href="sedeDiPadova.php">Sede di Padova</a></li>
                         <li><a class="dropdown-item" href="#">Sede di Roma</a></li>
                     </ul>
                 </li>
