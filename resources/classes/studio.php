@@ -3,17 +3,24 @@
 // class def
 class Studio {
 
+    private $id;
     private $città;
     private $indirizzo;
     private $cap;
     private $telefono;
 
     // constructor
-    public function __construct($città, $indirizzo, $cap, $telefono) {
+    public function __construct($id, $città, $indirizzo, $cap, $telefono) {
+        $this->id = $id;
         $this->città = $città;
         $this->indirizzo = $indirizzo;
         $this->cap = $cap;
         $this->telefono = $telefono;
+    }
+
+    // get the study id
+    public function get_studio_id() {
+        return $this->id;
     }
 
     // get the study city
@@ -40,8 +47,8 @@ class Studio {
 }
 
 // class obj
-$padova = new Studio("padova", "via Emanuele Filiberto 43", "35122", "+39 049 654313");
-$roma = new Studio("roma", "via Alessandria 88", "00198", "+39 0644 4254637");
+$padova = new Studio("1", "padova", "via Emanuele Filiberto 43", "35122", "+39 049 654313");
+$roma = new Studio("2", "roma", "via Alessandria 88", "00198", "+39 0644 4254637");
 
 $studi = array($padova, $roma);
 
