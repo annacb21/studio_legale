@@ -1,5 +1,10 @@
 <?php
 
+require_once("classes/studio.php");
+require_once("classes/area.php");
+require_once("classes/prof.php");
+require_once("classes/post.php");
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 //*************************** SYSTEM FUNCTIONS ****************************
@@ -86,10 +91,6 @@ function anteprima($txt, $lung_max) {
     return (count($words = explode(' ', $txt)) > $lung_max) ? implode(' ', array_slice($words, 0, $lung_max)) . "..." : $txt;
 
 }
-
-//*************************** GETTERS ****************************
-
-
 
 //*************************** FRONT FUNCTIONS ****************************
 
