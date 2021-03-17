@@ -52,46 +52,21 @@
             </a>
         </div>
         <ul class="list-group">
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Diritti della persona, tutela, amministrazione di sostegno e trust</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Affidamento figli e protezione dei minori a rischio</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Separazioni, divorzi, scioglimento unioni tra persone dello stesso sesso e convivenze</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Successioni ed eredità</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Adozioni e procreazione medicalmente assistita</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Incidenti e omicidi stradali</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Diritto penale della persona, dei minori e della famiglia</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Violenza alle donne, stalking, strumenti di tutela e ordini di protezione a favore del soggetto vulnerabile</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Locazioni, recupero crediti, vendita di beni dei debitori e piani di rientro</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="list-group-item-action">Diritto della navigazione</a>
-                <i class="fas fa-caret-right"></i>
-            </li>
+<!-- get areas list via PHP -->
+<?php
+foreach($aree as $a) {
+$area = <<<DELIMETER
+
+<li class="list-group-item">
+    <a href="#" class="list-group-item-action">{$a->get_name()}</a>
+    <i class="fas fa-caret-right"></i>
+</li>
+
+DELIMETER;
+echo $area;
+}
+?>
+<!-- -->
         </ul>
     </section>
 
