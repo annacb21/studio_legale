@@ -32,7 +32,7 @@
     <section id="studio">
         <div>
             <h3 class="d-inline">Lo Studio</h3>
-            <a href="#" role="button" class="btn btn-lg" aria-label="Approfondisci">
+            <a href="lostudio.php" role="button" class="btn btn-lg" aria-label="Approfondisci">
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
