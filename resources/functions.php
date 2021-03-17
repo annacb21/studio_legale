@@ -85,6 +85,13 @@ function fetch_array($result){
 
 }
 
+// display and image or a file
+function display_file($file) {
+
+    return "images" . DS . $file;
+
+}
+
 // show a part of a longer text
 function anteprima($txt, $lung_max) {
 
