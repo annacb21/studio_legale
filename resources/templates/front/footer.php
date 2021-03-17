@@ -28,16 +28,22 @@
         </div>
         <div class="col-lg-4">
             <h4>Le nostre sedi</h4>
-            <div>
-                <a href="#"><h5>Sede di Padova</h5></a>
-                <p>via Emanuele Filiberto 43</p>
-                <p>+39 049 654313</p>
-            </div>
-            <div>
-                <a href="#"><h5>Sede di Roma</h5></a>
-                <p>via Alessandria 88</p>
-                <p>+39 0644 4254637</p>
-            </div>
+<!-- Get studios list via PHP -->
+<?php 
+foreach($studi as $s) {
+$studio = <<<DELIMETER
+
+<div>
+    <a href="#"><h5>Sede di {$s->get_city()}</h5></a>
+    <p>{$s->get_adress()}</p>
+    <p>{$s->get_phone()}</p>
+</div>
+
+DELIMETER;
+echo $studio;
+}
+?>
+<!-- -->
         </div>
         <div class="col-lg-4">
             <h5>Contatti</h5>
