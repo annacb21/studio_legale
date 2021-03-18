@@ -1,11 +1,15 @@
 <?php 
 require_once("resources/config.php"); 
+
+// controllo id sede studio
 if(isset($_GET['id'])) {
     if($_GET['id'] == "1") {
+        $sede = $padova;
         $title = "Padova";
     } 
     else {
         $title = "Roma";
+        $sede = $roma;
     }
 }
 ?>
@@ -34,10 +38,45 @@ if(isset($_GET['id'])) {
         <img src="images/foto.jpg" alt="">
     </div>
 
-    <!-- LO STUDIO -->
+    <!-- LA SEDE -->
     <div>
-        <h1>Lo Studio Legale</h1>
-        
+        <h1>Sede di <?php echo $sede->get_city(); ?></h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <p>Indirizzo</p>
+                    <p><?php echo $sede->get_adress(); ?></p>
+                    <p><?php echo $sede->get_cap(); ?></p>
+                </div>
+                <div>
+                    <p>Contatti</p>
+                    <p>Tel e fax <?php echo $sede->get_phone(); ?></p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            <iframe src='<?php echo $sede->get_map(); ?>' width='800' height='300' style='border:0;' allowfullscreen='' loading='lazy'></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+<!-- Gallery foto -->
+<?php 
+$foto = $sede->get_foto();
+foreach($foto as $f) {
+$path = display_file($f);
+$img = <<<DELIMETER
+
+<div class="col-lg-3">
+    <a href="#">
+        <img src="{$path}" alt="foto studio di {$sede->get_city()}" class="w-100">
+    </a>
+</div>
+
+DELIMETER;
+echo $img;
+}
+?>
+<!-- -->
     </div>
 
     <!-- UP BUTTON -->
