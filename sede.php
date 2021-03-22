@@ -59,6 +59,23 @@ if(isset($_GET['id'])) {
             </div>
         </div>
     </div>
+
+    <!-- GALLERY FOTO -->
+    <div class="row">
+<?php
+for($i=0; $i<count($foto); $i++) {
+$img = display_file($foto[$i]);
+$f = <<<DELIMETER
+
+<div class="col-lg-3">
+    <img src="{$img}" alt="foto numero {$i}" class="w-100">
+</div>
+
+DELIMETER;
+echo $f;
+}
+?>
+    </div>
     
 
     <!-- UP BUTTON -->
