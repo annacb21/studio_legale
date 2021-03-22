@@ -53,6 +53,19 @@ echo $prof;
 ?>
 <!-- -->
         </div>
+        <div>
+            <h2>I Nostri Collaboratori</h2>
+            <ul>
+                <li>Commercialisti e revisori contabili</li>
+                <li>Consulenti per verifiche dati contabili e di bilancio</li>
+                <li>Periti Informatici</li>
+                <li>Periti Calligrafici</li>
+                <li>Architetti esperti in sanatorie ed abusi edilizi</li>
+                <li>Medici, Psicologi e Medici Legali altamente specializzati nella valutazione dei danni e nell’accertamento dei casi di malasanità</li>
+                <li>Periti specializzati nella ricostruzione di sinistri stradali e nella valutazione dei danni</li>
+                <li>Investigatori</li>
+            </ul>
+        </div>
     </div>
 
     <!-- UP BUTTON -->
