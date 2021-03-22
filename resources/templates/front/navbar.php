@@ -28,7 +28,7 @@ echo $link;
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Le Aree di Attività</a>
+                    <a class="nav-link" href="aree.php">Le Aree di Attività</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">I professionisti</a>
