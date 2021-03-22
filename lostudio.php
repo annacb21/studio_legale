@@ -44,7 +44,7 @@ foreach($studi as $s) {
 $studio = <<<DELIMETER
 
 <div class="col-lg-3">
-    <a href="sede.php?id={$s->get_studio_id()}">
+    <a href="sede.php?id={$s->get_id()}">
         <div class="card bg-dark text-white">
             <img src="https://via.placeholder.com/100" class="card-img" alt="">
             <div class="card-img-overlay">
