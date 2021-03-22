@@ -11,6 +11,7 @@ if(isset($_GET['id'])) {
         $title = "Roma";
         $sede = $roma;
     }
+    $foto = $sede->get_foto();
 }
 ?>
 
@@ -54,30 +55,11 @@ if(isset($_GET['id'])) {
                 </div>
             </div>
             <div class="col-lg-6">
-            <iframe src='<?php echo $sede->get_map(); ?>' width='800' height='300' style='border:0;' allowfullscreen='' loading='lazy'></iframe>
+                <iframe src='<?php echo $sede->get_map(); ?>' width='800' height='300' style='border:0;' allowfullscreen='' loading='lazy'></iframe>
             </div>
         </div>
     </div>
-    <div class="row">
-<!-- Gallery foto -->
-<?php 
-$foto = $sede->get_foto();
-foreach($foto as $f) {
-$path = display_file($f);
-$img = <<<DELIMETER
-
-<div class="col-lg-3">
-    <a href="#">
-        <img src="{$path}" alt="foto studio di {$sede->get_city()}" class="w-100">
-    </a>
-</div>
-
-DELIMETER;
-echo $img;
-}
-?>
-<!-- -->
-    </div>
+    
 
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
