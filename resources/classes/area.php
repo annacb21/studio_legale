@@ -30,14 +30,14 @@ class Area {
     private $id;
     private $nome;
     private $desc;
-    private $aree;
+    private $casi;
 
     // constructor
-    public function __construct($id, $nome, $desc, $aree) {
+    public function __construct($id, $nome, $desc, $casi) {
         $this->id = $id;
         $this->nome = $nome;
         $this->desc = $desc;
-        $this->aree = $aree;
+        $this->casi = $casi;
     }
 
     // get the area id
@@ -53,7 +53,12 @@ class Area {
     // get the area desc
     public function get_desc() {
         return $this->desc;
-    }    
+    }  
+    
+    // get the case list
+    public function get_cases() {
+        return $this->casi;
+    }
 
 }
 
