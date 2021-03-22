@@ -25,7 +25,7 @@ class Professionista {
     }
 
     // get the id
-    public function get_prof_id() {
+    public function get_id() {
         return $this->id;
     }
 

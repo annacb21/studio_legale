@@ -14,12 +14,12 @@ class Caso {
     }
 
     // get the case name
-    public function get_case_name() {
+    public function get_name() {
         return $this->nome;
     }
 
     // get the case desc
-    public function get_case_desc() {
+    public function get_desc() {
         return $this->desc;
     }
 
@@ -41,7 +41,7 @@ class Area {
     }
 
     // get the area id
-    public function get_area_id() {
+    public function get_id() {
         return $this->id;
     }
 

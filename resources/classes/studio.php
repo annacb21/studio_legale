@@ -23,7 +23,7 @@ class Studio {
     }
 
     // get the study id
-    public function get_studio_id() {
+    public function get_id() {
         return $this->id;
     }
 
