@@ -40,7 +40,7 @@ $prof = <<<DELIMETER
         <div class="card-body">
             <h5 class="card-title">{$p->get_name()}</h5>
             <p class="card-text">{$p->get_role()}</p>
-            <a href="" class="btn btn-primary">
+            <a href="profDetail.php?id={$p->get_id()}" class="btn btn-primary">
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
