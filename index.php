@@ -57,7 +57,7 @@ foreach($aree as $a) {
 $area = <<<DELIMETER
 
 <li class="list-group-item">
-    <a href="#" class="list-group-item-action">{$a->get_name()}</a>
+    <a href="areaDetail.php?id={$a->get_id()}" class="list-group-item-action">{$a->get_name()}</a>
     <i class="fas fa-caret-right"></i>
 </li>
 
