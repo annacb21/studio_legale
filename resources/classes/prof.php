@@ -69,4 +69,14 @@ E’ autrice di diverse pubblicazioni in ambito giuridico penale, minorile e fam
 $tAree = array($a1, $a2, $a3);
 $turlon = new Professionista("1", "Avv. Federica Turlon", "Avvocato Fondatore dello Studio", "turlon.jpg", $tDesc, "cv", $tAree);
 
+$pDesc = "boh";
+$pAree = array($a4, $a5, $a6, $a7);
+$pardini = new Professionista("2", "Avv. Cristina Pardini", "Dottore di ricerca in Diritto Civile", "pardini.jpg", $pDesc, "cv", $pAree);
+
+$bDesc = "ah boh";
+$bAree = array($a8, $a9, $a10);
+$barison = new Professionista("3", "Demetra Barison", "Responsabile segreteria e amministrazione", "barison.jpg", $bDesc, "cv", $bAree);
+
+$profs = array($turlon, $pardini, $barison);
+
 ?>
