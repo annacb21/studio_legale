@@ -2,6 +2,7 @@
 require_once("resources/config.php"); 
 if(isset($_GET['id'])) {
     $area = $aree[$_GET['id']-1];
+    $casi = $area->get_cases();
 }
 ?>
 
@@ -36,9 +37,31 @@ if(isset($_GET['id'])) {
         </ol>
     </nav>
 
-    <!-- AREE -->
+    <!-- AREA -->
     <div>
-        
+        <h1><?php echo $area->get_name(); ?></h1>
+        <p><?php echo $area->get_desc(); ?></p>
+        <div class="row">
+<!-- casi via php -->
+<?php
+foreach($casi as $c) {
+$caso = <<<DELIMETER
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{$c->get_name()}</h5>
+            <p class="card-text">{$c->get_desc()}</p>
+        </div>
+    </div>
+</div>
+
+DELIMETER;
+echo $caso;
+}
+?>
+<!-- -->
+        </div>
     </div>
 
     <!-- UP BUTTON -->
