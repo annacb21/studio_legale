@@ -61,20 +61,81 @@ if(isset($_GET['id'])) {
     </div>
 
     <!-- GALLERY FOTO -->
-    <div class="row">
+    <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#galleryModal">
+<!-- foto via php -->
 <?php
 for($i=0; $i<count($foto); $i++) {
 $img = display_file($foto[$i]);
 $f = <<<DELIMETER
 
 <div class="col-lg-3">
-    <img src="{$img}" alt="foto numero {$i}" class="w-100">
+    <img src="{$img}" alt="foto numero {$i}" class="w-100" data-bs-target="#galleryCarousel" data-bs-slide-to="{$i}">
 </div>
 
 DELIMETER;
 echo $f;
 }
 ?>
+<!-- -->
+    </div>
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Foto numero 0"></button>
+<!-- carousel indicators via php -->
+<?php
+for($i=1; $i<count($foto); $i++) {
+$ind = <<<DELIMETER
+
+<button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="{$i}" aria-label="Foto numero {$i}"></button>
+
+DELIMETER;
+echo $ind;
+}
+?>
+<!-- -->
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="<?php echo display_file($foto[0]); ?>" class="d-block w-100" alt="foto numero 0">
+                            </div>
+<!-- foto carousel via php -->
+<?php
+for($i=1; $i<count($foto); $i++) {
+$img = display_file($foto[$i]);
+$f = <<<DELIMETER
+
+<div class="carousel-item">
+    <img src="{$img}" class="d-block w-100" alt="foto numero {$i}">
+</div>
+
+DELIMETER;
+echo $f;
+}
+?>
+<!-- -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"  data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"  data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>     
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
     
 
