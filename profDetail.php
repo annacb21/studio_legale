@@ -1,4 +1,9 @@
-<?php require_once("resources/config.php"); ?>
+<?php
+require_once("resources/config.php"); 
+if(isset($_GET['id'])) {
+    $prof = $profs[$_GET['id']];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">
