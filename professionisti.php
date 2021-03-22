@@ -23,6 +23,38 @@
         <img src="images/foto.jpg" alt="">
     </div>
 
+    <!-- PROFESSIONISTI -->
+    <div>
+        <h1>I Professionisti</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus in hac habitasse platea dictumst.</p>
+        <div class="row">
+<!-- professionisti via php -->
+<?php
+foreach($profs as $p) {
+$foto = display_file($p->get_foto());
+$prof = <<<DELIMETER
+
+<div class="col-lg-3">
+    <div class="card">
+        <img src="{$foto}" class="card-img-top" alt="Foto {$p->get_name()}">
+        <div class="card-body">
+            <h5 class="card-title">{$p->get_name()}</h5>
+            <p class="card-text">{$p->get_role()}</p>
+            <a href="" class="btn btn-primary">
+                <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+DELIMETER;
+echo $prof;
+}
+?>
+<!-- -->
+        </div>
+    </div>
+
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
 
