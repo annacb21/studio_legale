@@ -13,7 +13,7 @@
                     <a class="nav-link" href="aree.php">Le Aree di Attività</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">I Professionisti</a>
+                    <a class="nav-link" href="professionisti.php">I Professionisti</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pubblicazioni ed eventi</a>
