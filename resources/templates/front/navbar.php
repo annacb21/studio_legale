@@ -19,7 +19,7 @@
 <?php 
 foreach($studi as $s) {
 $link = <<<DELIMETER
-<li><a class="dropdown-item" href="sede.php?id={$s->get_studio_id()}">Sede di {$s->get_city()}</a></li>
+<li><a class="dropdown-item" href="sede.php?id={$s->get_id()}">Sede di {$s->get_city()}</a></li>
 DELIMETER;
 echo $link;
 }
