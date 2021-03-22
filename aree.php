@@ -23,7 +23,35 @@
         <img src="images/foto.jpg" alt="">
     </div>
 
-    
+    <!-- AREE -->
+    <div>
+        <h1>Le Aree di Attività</h1>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Arcu risus quis varius quam quisque. Nunc vel risus commodo viverra maecenas accumsan lacus. Congue quisque egestas diam in arcu cursus euismod. Ut faucibus pulvinar elementum integer enim. Volutpat blandit aliquam etiam erat. Eu non diam phasellus vestibulum lorem sed risus. Sed blandit libero volutpat sed cras ornare arcu dui vivamus. Non curabitur gravida arcu ac tortor dignissim convallis. Imperdiet proin fermentum leo vel. Cras pulvinar mattis nunc sed blandit libero. Diam in arcu cursus euismod. Eu sem integer vitae justo eget magna fermentum iaculis eu. Malesuada proin libero nunc consequat interdum. Dui vivamus arcu felis bibendum ut. Non quam lacus suspendisse faucibus interdum posuere lorem. 
+        </p>
+        <div class="row">
+<!-- aree via php -->
+<?php
+foreach($aree as $a) {
+$area = <<<DELIMETER
+
+<div class="col-lg-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{$a->get_name()}</h5>
+            <p class="card-text">{$a->get_desc()}</p>
+            <a href="#" class="btn btn-primary">Approfondisci</a>
+        </div>
+    </div>
+</div>
+
+DELIMETER;
+echo $area;
+}
+?>
+<!-- -->
+        </div>
+    </div>
 
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
