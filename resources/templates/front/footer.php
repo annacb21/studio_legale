@@ -10,7 +10,7 @@
                     <a class="nav-link" href="lostudio.php">Lo Studio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Le Aree di Attività</a>
+                    <a class="nav-link" href="aree.php">Le Aree di Attività</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">I Professionisti</a>

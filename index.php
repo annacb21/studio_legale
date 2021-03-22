@@ -47,7 +47,7 @@
     <section>
         <div>
             <h3 class="d-inline">Le Aree di Attività</h3>
-            <a href="#" role="button" class="btn btn-lg" aria-label="Approfondisci">
+            <a href="aree.php" role="button" class="btn btn-lg" aria-label="Approfondisci">
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
