@@ -40,7 +40,7 @@ $area = <<<DELIMETER
         <div class="card-body">
             <h5 class="card-title">{$a->get_name()}</h5>
             <p class="card-text">{$a->get_desc()}</p>
-            <a href="#" class="btn btn-primary">Approfondisci</a>
+            <a href="areaDetail.php?id={$a->get_id()}" class="btn btn-primary">Approfondisci</a>
         </div>
     </div>
 </div>
