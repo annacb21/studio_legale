@@ -28,6 +28,14 @@ if(isset($_GET['id'])) {
         <img src="images/foto.jpg" alt="">
     </div>
 
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="professionisti.php">I Professionisti</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $prof->get_name(); ?></li>
+        </ol>
+    </nav>
+
     <!-- PROFESSIONISTI -->
 
     <!-- UP BUTTON -->
