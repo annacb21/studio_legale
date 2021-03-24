@@ -1,5 +1,6 @@
 <?php
 
+// class def
 class Post {
 
     private $id;
@@ -9,7 +10,7 @@ class Post {
     private $testo;
 
     // constructor
-    public function __construct($id, $titolo, $data, $cat, $testo, $cv, $aree) {
+    public function __construct($id, $titolo, $data, $cat, $testo) {
         $this->id = $id;
         $this->titolo = $titolo;
         $this->data = $data;
