@@ -2,17 +2,24 @@
 
 class Post {
 
+    private $id;
     private $titolo;
     private $data;
     private $cat;
     private $testo;
 
     // constructor
-    public function __construct($titolo, $data, $cat, $testo, $cv, $aree) {
+    public function __construct($id, $titolo, $data, $cat, $testo, $cv, $aree) {
+        $this->id = $id;
         $this->titolo = $titolo;
         $this->data = $data;
         $this->cat = $cat;
         $this->testo = $testo;
+    }
+
+    // get the id
+    public function get_id() {
+        return $this->id;
     }
 
     // get the title
