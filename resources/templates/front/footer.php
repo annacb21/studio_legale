@@ -16,7 +16,7 @@
                     <a class="nav-link" href="professionisti.php">I Professionisti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pubblicazioni ed eventi</a>
+                    <a class="nav-link" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Consulenza Online</a>
