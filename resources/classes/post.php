@@ -1,5 +1,7 @@
 <?php
 
+require_once("resources/database.php");
+
 // class def
 class Post {
 
@@ -10,13 +12,7 @@ class Post {
     private $testo;
 
     // constructor
-    public function __construct($id, $titolo, $data, $cat, $testo) {
-        $this->id = $id;
-        $this->titolo = $titolo;
-        $this->data = $data;
-        $this->cat = $cat;
-        $this->testo = $testo;
-    }
+    public function __construct() {}
 
     // get the id
     public function get_id() {
@@ -43,6 +39,18 @@ class Post {
         return $this->testo;
     }
 
+    // getter 
+    public function get_posts() {
+        $posts = null;
+        $query = query("SELECT * FROM post");
+        confirm($query);
+        while($row = fetch_array($query)) {
+            $posts[] = $row;
+        }
+        return $posts;
+    }
+
 }
+
 
 ?>

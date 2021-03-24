@@ -4,6 +4,7 @@ require_once("classes/studio.php");
 require_once("classes/area.php");
 require_once("classes/prof.php");
 require_once("classes/post.php");
+require_once("database.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -47,41 +48,6 @@ echo $alert;
 
 unset($_SESSION['message']);
 }
-
-}
-
-// query the database
-function query($sql){
-
-    global $connection;
-
-    return mysqli_query($connection, $sql);
-
-}
-
-// confirm a database query
-function confirm($result){
-
-    global $connection;
-
-    if(!$result) {
-        die("QUERY FAILED " . mysqli_error($connection));
-    }
-
-}
-
-
-function escape_string($string) {
-
-    global $connection;
-
-    return mysqli_real_escape_string($connection, $string);
-
-}
-
-function fetch_array($result){
-
-    return mysqli_fetch_array($result);
 
 }
 
@@ -167,6 +133,10 @@ function login() {
     }
 
 }
+
+
+
+
 
 
 //*************************** BACK FUNCTIONS ****************************
