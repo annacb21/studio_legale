@@ -36,7 +36,38 @@ if(isset($_GET['id'])) {
         </ol>
     </nav>
 
-    <!-- PROFESSIONISTI -->
+    <!-- PROFESSIONISTA -->
+    <div>
+        <h1><?php echo $prof->get_name(); ?></h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="<?php echo display_file($prof->get_foto()); ?>" alt="Foto <?php echo $prof->get_name(); ?>">
+            </div>
+            <div class="col-lg-6">
+                <p><?php echo $prof->get_role(); ?></p>
+                <p><?php echo $prof->get_desc(); ?></p>
+                <button type="button" class="btn btn-primary">Curriculum Vitae [PDF]</button>
+            </div>
+        </div>
+        <div>
+            <h2>Aree di Attività Specifiche:</h2>
+            <ul class="list-group list-group-flush">
+<!-- aree via PHP -->
+<?php
+$aree = $prof->get_aree();
+foreach($aree as $a) {
+$area = <<<DELIMETER
+
+<li class="list-group-item">{$a->get_name()}</li>
+
+DELIMETER;
+echo $area;
+}
+?>
+<!-- -->
+            </ul>
+        </div>
+    </div>
 
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
