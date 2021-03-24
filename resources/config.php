@@ -1,6 +1,10 @@
 <?php
 
 require_once("classes/database.php");
+require_once("classes/studio.php");
+require_once("classes/area.php");
+require_once("classes/prof.php");
+require_once("classes/post.php");
 
 ob_start();
 
