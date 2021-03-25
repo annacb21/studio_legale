@@ -23,6 +23,30 @@
         <img src="images/foto.jpg" alt="">
     </div>
 
+    <div class="row">
+        <!-- POST -->
+        <div class="col-lg-7">
+            <ul>
+<!-- post via PHP -->
+<?php 
+foreach($posts as $post) {
+$p = <<<DELIMETER
+<li>
+    <p>{$post->get_title()}</p>
+    <p>{$post->get_data()} / in <a href="#">{$post->get_cat_name()}</a></p>
+    <p>{$post->get_text_ant()}</p>
+    <a href="#">Leggi di più ...</a>
+</li>
+DELIMETER;
+echo $p;
+}
+?>
+<!-- -->
+            </ul>
+        </div>
+        <!-- FILTERS -->
+    </div>
+
 
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
