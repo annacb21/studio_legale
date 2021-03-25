@@ -1,4 +1,21 @@
-<?php require_once("resources/config.php"); ?>
+<?php 
+require_once("resources/config.php"); 
+$page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
+$pagination_start = ($page - 1) * 4;
+$prev = $page - 1;
+$next = $page + 1;
+$q = query("SELECT * FROM post LIMIT $pagination_start, 4");
+confirm($q);
+$curr_posts = array();
+$i = 0;
+while($row = fetch_array($q)) {
+    $d = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $date = strftime("%d %B %Y", strtotime($d));
+    $curr_posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+    $i++;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -29,7 +46,7 @@
             <ul>
 <!-- post via PHP -->
 <?php 
-foreach($posts as $post) {
+foreach($curr_posts as $post) {
 $p = <<<DELIMETER
 <li>
     <p>{$post->get_title()}</p>
@@ -43,6 +60,26 @@ echo $p;
 ?>
 <!-- -->
             </ul>
+            <!-- pagination -->
+            <nav aria-label="Navigazione pagine">
+                <ul class="pagination">
+                    <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
+                        <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=" . $prev; } ?>" aria-label="Indietro">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <?php for($i = 1; $i <= $tot_pages; $i++ ): ?>
+                    <li class="page-item <?php if($page == $i) {echo 'active'; } ?>">
+                        <a class="page-link" href="pubblicazioni.php?page=<?= $i; ?>"><?= $i; ?></a>
+                    </li>
+                    <?php endfor; ?>
+                    <li class="page-item <?php if($page >= $tot_pages) { echo 'disabled'; } ?>">
+                        <a class="page-link" href="<?php if($page >= $tot_pages){ echo '#'; } else {echo "?page=". $next; } ?>" aria-label="Avanti">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <!-- FILTERS -->
     </div>

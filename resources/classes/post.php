@@ -71,17 +71,13 @@ class Post {
 
 }
 
-$posts = array();
-$query = query("SELECT * FROM post");
-confirm($query);
-$i = 0;
-while($row = fetch_array($query)) {
-    $d = $row['post_data'];
-    setlocale(LC_TIME, 'it_IT');
-    $date = strftime("%d %B %Y", strtotime($d));
-    $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
-    $i++;
-}
+
+$tot_query = query("SELECT COUNT(*) as tot FROM post");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
+
+$tot_pages = ceil($tot_post / 4);
 
 
 ?>
