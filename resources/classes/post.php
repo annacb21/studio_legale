@@ -52,7 +52,10 @@ $query = query("SELECT * FROM post");
 confirm($query);
 $i = 0;
 while($row = fetch_array($query)) {
-    $posts[$i] = new Post($row['id'], $row['titolo'], $row['post_data'], $row['cat_id'], $row['testo']);
+    $d = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $date = strftime("%d %B %Y", strtotime($d));
+    $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
     $i++;
 }
 
