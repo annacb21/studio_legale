@@ -49,7 +49,7 @@ foreach($curr_posts as $post) {
 $p = <<<DELIMETER
 <li class="{$post->get_cat()}">
     <p>{$post->get_title()}</p>
-    <p>{$post->get_data()} / in <a href="#">{$post->get_cat_name()}</a></p>
+    <p>{$post->get_data()} / in {$post->get_cat_name()}</p>
     <p>{$post->get_text_ant()}</p>
     <a href="#">Leggi di più ...</a>
 </li>
