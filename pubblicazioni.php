@@ -15,6 +15,8 @@ while($row = fetch_array($q)) {
     $curr_posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
     $i++;
 }
+$cat_query = query("SELECT * FROM categorie");
+confirm($cat_query);
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +43,15 @@ while($row = fetch_array($q)) {
     </div>
 
     <div class="row">
+        <h1 id="post-cat-title">Tutti i post</h1>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" id="loader">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <!-- POST -->
         <div class="col-lg-7">
-            <ul>
+            <ul id="posts">
 <!-- post via PHP -->
 <?php 
 foreach($curr_posts as $post) {
@@ -83,8 +91,9 @@ echo $p;
         </div>
         <!-- FILTERS -->
         <div class="col-lg-5">
-            <p>POST RECENTI</p>
-            <ul>
+            <div>
+                <h2>POST RECENTI</h2>
+                <ul>
 <!-- recent post via PHP -->
 <?php 
 foreach($recent_post as $r) {
@@ -97,7 +106,28 @@ echo $rec;
 }
 ?>
 <!-- -->   
-            </ul>         
+                </ul> 
+            </div>
+            <div>
+                <h2>CATEGORIE</h2>
+                <ul class="list-group">
+<!-- categories via PHP -->
+<?php 
+while($row = fetch_array($cat_query)) {
+$cat = <<<DELIMETER
+<li class="list-group-item">
+    <div class="form-check">
+        <input class="form-check-input cat-filter" type="radio" name="cat" value="{$row['id']}" id="cat" aria-label="{$row['nome']}">
+        {$row['nome']}
+    </div>
+</li>
+DELIMETER;
+echo $cat;
+}
+?>
+<!-- --> 
+                </ul>
+            </div>        
         </div>
     </div>
 
