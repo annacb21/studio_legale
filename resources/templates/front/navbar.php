@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarLinks">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "index.php"){echo "active";} else {echo "";} ?>" href="index.php">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="studioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lo Studio</a>
+                    <a class="nav-link dropdown-toggle <?php if(basename($_SERVER['PHP_SELF']) == "lostudio.php" || basename($_SERVER['PHP_SELF']) == "sede.php"){echo "active";} else {echo "";} ?>" href="#" id="studioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lo Studio</a>
                     <ul class="dropdown-menu" aria-labelledby="studioDropdown">
 <!-- dropdown studio list via PHP -->
 <?php 
@@ -28,13 +28,13 @@ echo $link;
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="aree.php">Le Aree di Attività</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "aree.php" || basename($_SERVER['PHP_SELF']) == "areaDetail.php"){echo "active";} else {echo "";} ?>" href="aree.php">Le Aree di Attività</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="professionisti.php">I professionisti</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "professionisti.php" || basename($_SERVER['PHP_SELF']) == "profDetail.php"){echo "active";} else {echo "";} ?>" href="professionisti.php">I professionisti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "pubblicazioni.php" || basename($_SERVER['PHP_SELF']) == "pubDetail.php"){echo "active";} else {echo "";} ?>" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Consulenza Online</a>
