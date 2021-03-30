@@ -71,14 +71,6 @@ class Post {
 
 }
 
-
-$tot_query = query("SELECT COUNT(*) as tot FROM post");
-confirm($tot_query);
-$tot_row = fetch_array($tot_query);
-$tot_post = $tot_row['tot'];
-
-$tot_pages = ceil($tot_post / 4);
-
 $recent_query = query("SELECT * FROM post ORDER BY post_data DESC LIMIT 4");
 confirm($recent_query);
 $recent_post = array();

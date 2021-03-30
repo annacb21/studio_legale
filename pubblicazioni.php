@@ -1,22 +1,13 @@
 <?php 
 require_once("resources/config.php"); 
-$page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
-$pagination_start = ($page - 1) * 4;
-$prev = $page - 1;
-$next = $page + 1;
-$q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $pagination_start, 4");
-confirm($q);
-$curr_posts = array();
-$i = 0;
-while($row = fetch_array($q)) {
-    $d = $row['post_data'];
-    setlocale(LC_TIME, 'it_IT');
-    $date = strftime("%d %B %Y", strtotime($d));
-    $curr_posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
-    $i++;
-}
+
 $cat_query = query("SELECT * FROM categorie");
 confirm($cat_query);
+
+$page = get_page();
+$pagination_start = ($page - 1) * 4;
+
+$curr_posts = show_post($pagination_start);
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +34,7 @@ confirm($cat_query);
     </div>
 
     <div class="row">
-        <h1 id="post-cat-title">Tutti i post</h1>
+        <h1><?php echo get_page_title(); ?></h1>
         <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status" id="loader">
                 <span class="visually-hidden">Loading...</span>
@@ -56,7 +47,7 @@ confirm($cat_query);
 <?php 
 foreach($curr_posts as $post) {
 $p = <<<DELIMETER
-<li>
+<li class="{$post->get_cat()}">
     <p>{$post->get_title()}</p>
     <p>{$post->get_data()} / in <a href="#">{$post->get_cat_name()}</a></p>
     <p>{$post->get_text_ant()}</p>
@@ -69,25 +60,7 @@ echo $p;
 <!-- -->
             </ul>
             <!-- pagination -->
-            <nav aria-label="Navigazione pagine">
-                <ul class="pagination">
-                    <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
-                        <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=" . $prev; } ?>" aria-label="Indietro">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for($i = 1; $i <= $tot_pages; $i++ ): ?>
-                    <li class="page-item <?php if($page == $i) {echo 'active'; } ?>">
-                        <a class="page-link" href="pubblicazioni.php?page=<?= $i; ?>"><?= $i; ?></a>
-                    </li>
-                    <?php endfor; ?>
-                    <li class="page-item <?php if($page >= $tot_pages) { echo 'disabled'; } ?>">
-                        <a class="page-link" href="<?php if($page >= $tot_pages){ echo '#'; } else {echo "?page=". $next; } ?>" aria-label="Avanti">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <?php show_pagination($page); ?>
         </div>
         <!-- FILTERS -->
         <div class="col-lg-5">
@@ -110,23 +83,22 @@ echo $rec;
             </div>
             <div>
                 <h2>CATEGORIE</h2>
-                <ul class="list-group">
+                <form action="" method="POST" class="needs-validation" novalidate>
 <!-- categories via PHP -->
 <?php 
 while($row = fetch_array($cat_query)) {
 $cat = <<<DELIMETER
-<li class="list-group-item">
-    <div class="form-check">
-        <input class="form-check-input cat-filter" type="radio" name="cat" value="{$row['id']}" id="cat" aria-label="{$row['nome']}">
-        {$row['nome']}
-    </div>
-</li>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="cat" value="{$row['id']}" id="{$row['id']}" aria-label="{$row['nome']}" required>
+    <label class="form-check-label" for="{$row['id']}">{$row['nome']}</label>
+</div>
 DELIMETER;
 echo $cat;
 }
 ?>
 <!-- --> 
-                </ul>
+                    <button name="selectCat" type="submit" class="btn btn-primary mr-3">Filtra</button> 
+                </form>
             </div>        
         </div>
     </div>
@@ -142,5 +114,6 @@ echo $cat;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="js/scrollToTop.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>

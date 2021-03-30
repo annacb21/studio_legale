@@ -134,10 +134,165 @@ function login() {
 
 }
 
+// count pages for pagination
+function get_page() {
+
+    $page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
+    return $page;
+
+}
+
+// shows articles
+function show_post($start) {
+
+    $posts = array();
+
+    if(isset($_POST['selectCat'])) {
+
+        $cat = escape_string($_POST['cat']);
+        $q = query("SELECT * FROM post WHERE cat_id = $cat ORDER BY post_data DESC LIMIT $start, 4");
+        confirm($q);
+        $i = 0;
+        while($row = fetch_array($q)) {
+            $d = $row['post_data'];
+            setlocale(LC_TIME, 'it_IT');
+            $date = strftime("%d %B %Y", strtotime($d));
+            $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+            $i++;
+        }
+
+    }
+    else {
+
+        $q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $start, 4");
+        confirm($q);
+        $i = 0;
+        while($row = fetch_array($q)) {
+            $d = $row['post_data'];
+            setlocale(LC_TIME, 'it_IT');
+            $date = strftime("%d %B %Y", strtotime($d));
+            $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+            $i++;
+        }
+
+    }
+
+    return $posts;
+
+}
+
+// show post page title
+function get_page_title() {
+
+    $title = "";
+
+    if(isset($_POST['selectCat'])) {
+
+        $cat = escape_string($_POST['cat']);
+        
+        if($cat == "1") {
+            $title = "News";
+        }
+        if($cat == "2") {
+            $title = "Eventi";
+        }
+        if($cat == "3") {
+            $title = "Pubblicazioni";
+        }
+
+    }
+    else {
+
+        $title = "Tutti i post";
+
+    }
+
+    return $title;
+
+}
+
+// show pagination
+function show_pagination($page) {
+
+$tot_post = 0;
+if(isset($_POST['selectCat'])) {
+$cat = escape_string($_POST['cat']);
+$tot_query = query("SELECT COUNT(*) as tot FROM post WHERE cat_id = $cat");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
+}
+else {
+$tot_query = query("SELECT COUNT(*) as tot FROM post");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
+}
+
+if($tot_post > 4) {
+
+$tot_pages = ceil($tot_post / 4);
+$pagination_start = ($page - 1) * 4;
+$prev = $page - 1;
+$next = $page + 1;
+if($page <= 1) {
+$dis = " disabled";
+$plink = "#";
+}
+else {
+$dis = "";
+$plink = "?page=" . $prev;
+}
+
+$pag = <<<DELIMETER
+
+<nav aria-label="Navigazione pagine">
+    <ul class="pagination">
+        <li class="page-item{$dis}">
+            <a class="page-link" href="{$plink}" aria-label="Indietro">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+DELIMETER;
+
+for($i = 1; $i <= $tot_pages; $i++) {
+if($page == $i) {
+$act = " active";
+}
+else {
+$act = "";
+}
+$pag .= <<<DELIMETER
+<li class="page-item{$act}">
+    <a class="page-link" href="pubblicazioni.php?page={$i}">{$i}</a>
+</li>
+DELIMETER;
+}
+
+if($page >= $tot_pages) {
+$d = " disabled";
+$alink = "#";
+}
+else {
+$d = "";
+$alink = "?page=" . $next;
+}
+$pag .= <<<DELIMETER
+        <li class="page-item{$d}">
+            <a class="page-link" href="{$alink}" aria-label="Avanti">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+DELIMETER;
+
+echo $pag;
+
+}
 
 
-
-
+}
 
 //*************************** BACK FUNCTIONS ****************************
 
