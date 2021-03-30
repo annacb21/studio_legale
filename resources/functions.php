@@ -150,15 +150,29 @@ function show_post($start) {
     if(isset($_POST['selectCat'])) {
 
         $cat = escape_string($_POST['cat']);
-        $q = query("SELECT * FROM post WHERE cat_id = $cat ORDER BY post_data DESC LIMIT $start, 4");
-        confirm($q);
-        $i = 0;
-        while($row = fetch_array($q)) {
-            $d = $row['post_data'];
-            setlocale(LC_TIME, 'it_IT');
-            $date = strftime("%d %B %Y", strtotime($d));
-            $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
-            $i++;
+        if($cat == 0) {
+            $q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $start, 4");
+            confirm($q);
+            $i = 0;
+            while($row = fetch_array($q)) {
+                $d = $row['post_data'];
+                setlocale(LC_TIME, 'it_IT');
+                $date = strftime("%d %B %Y", strtotime($d));
+                $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                $i++;
+            }
+        }
+        else {
+            $q = query("SELECT * FROM post WHERE cat_id = $cat ORDER BY post_data DESC LIMIT 0, 4");
+            confirm($q);
+            $i = 0;
+            while($row = fetch_array($q)) {
+                $d = $row['post_data'];
+                setlocale(LC_TIME, 'it_IT');
+                $date = strftime("%d %B %Y", strtotime($d));
+                $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                $i++;
+            }
         }
 
     }
@@ -190,6 +204,10 @@ function get_page_title() {
 
         $cat = escape_string($_POST['cat']);
         
+        if($cat == "0") {
+            $title = "Tutti i post";
+        }
+
         if($cat == "1") {
             $title = "News";
         }
@@ -217,10 +235,18 @@ function show_pagination($page) {
 $tot_post = 0;
 if(isset($_POST['selectCat'])) {
 $cat = escape_string($_POST['cat']);
+if($cat == 0) {
+$tot_query = query("SELECT COUNT(*) as tot FROM post");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
+}
+else {
 $tot_query = query("SELECT COUNT(*) as tot FROM post WHERE cat_id = $cat");
 confirm($tot_query);
 $tot_row = fetch_array($tot_query);
 $tot_post = $tot_row['tot'];
+}
 }
 else {
 $tot_query = query("SELECT COUNT(*) as tot FROM post");
