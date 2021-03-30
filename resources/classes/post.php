@@ -79,5 +79,16 @@ $tot_post = $tot_row['tot'];
 
 $tot_pages = ceil($tot_post / 4);
 
+$recent_query = query("SELECT * FROM post ORDER BY post_data DESC LIMIT 4");
+confirm($recent_query);
+$recent_post = array();
+$j = 0;
+while($row = fetch_array($recent_query)) {
+    $pd = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $pdate = strftime("%d %B %Y", strtotime($pd));
+    $recent_post[$j] = new Post($row['id'], $row['titolo'], $pdate, $row['cat_id'], $row['testo']);
+    $j++;
+}
 
 ?>

@@ -4,7 +4,7 @@ $page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1
 $pagination_start = ($page - 1) * 4;
 $prev = $page - 1;
 $next = $page + 1;
-$q = query("SELECT * FROM post LIMIT $pagination_start, 4");
+$q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $pagination_start, 4");
 confirm($q);
 $curr_posts = array();
 $i = 0;
@@ -82,6 +82,23 @@ echo $p;
             </nav>
         </div>
         <!-- FILTERS -->
+        <div class="col-lg-5">
+            <p>POST RECENTI</p>
+            <ul>
+<!-- recent post via PHP -->
+<?php 
+foreach($recent_post as $r) {
+$rec = <<<DELIMETER
+<li>
+    <a href="">{$r->get_title()}</a>
+</li>
+DELIMETER;
+echo $rec;
+}
+?>
+<!-- -->   
+            </ul>         
+        </div>
     </div>
 
 
