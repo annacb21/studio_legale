@@ -147,10 +147,55 @@ function show_post($start) {
 
     $posts = array();
 
-    if(isset($_POST['selectCat'])) {
+    if(isset($_POST['search'])) {
 
-        $cat = escape_string($_POST['cat']);
-        if($cat == 0) {
+        $str = escape_string($_POST['cerca']);
+        $q = query("SELECT * FROM post WHERE titolo LIKE '%$str%' ORDER BY post_data DESC LIMIT 0, 4");
+        confirm($q);
+        if($q->num_rows > 0) {
+            $i = 0;
+            while($row = fetch_array($q)) {
+                $d = $row['post_data'];
+                setlocale(LC_TIME, 'it_IT');
+                $date = strftime("%d %B %Y", strtotime($d));
+                $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                $i++;
+            }
+        }
+    }
+    else {
+
+        if(isset($_POST['selectCat'])) {
+
+            $cat = escape_string($_POST['cat']);
+            if($cat == 0) {
+                $q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $start, 4");
+                confirm($q);
+                $i = 0;
+                while($row = fetch_array($q)) {
+                    $d = $row['post_data'];
+                    setlocale(LC_TIME, 'it_IT');
+                    $date = strftime("%d %B %Y", strtotime($d));
+                    $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                    $i++;
+                }
+            }
+            else {
+                $q = query("SELECT * FROM post WHERE cat_id = $cat ORDER BY post_data DESC LIMIT 0, 4");
+                confirm($q);
+                $i = 0;
+                while($row = fetch_array($q)) {
+                    $d = $row['post_data'];
+                    setlocale(LC_TIME, 'it_IT');
+                    $date = strftime("%d %B %Y", strtotime($d));
+                    $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                    $i++;
+                }
+            }
+    
+        }
+        else {
+    
             $q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $start, 4");
             confirm($q);
             $i = 0;
@@ -161,32 +206,7 @@ function show_post($start) {
                 $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
                 $i++;
             }
-        }
-        else {
-            $q = query("SELECT * FROM post WHERE cat_id = $cat ORDER BY post_data DESC LIMIT 0, 4");
-            confirm($q);
-            $i = 0;
-            while($row = fetch_array($q)) {
-                $d = $row['post_data'];
-                setlocale(LC_TIME, 'it_IT');
-                $date = strftime("%d %B %Y", strtotime($d));
-                $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
-                $i++;
-            }
-        }
-
-    }
-    else {
-
-        $q = query("SELECT * FROM post ORDER BY post_data DESC LIMIT $start, 4");
-        confirm($q);
-        $i = 0;
-        while($row = fetch_array($q)) {
-            $d = $row['post_data'];
-            setlocale(LC_TIME, 'it_IT');
-            $date = strftime("%d %B %Y", strtotime($d));
-            $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
-            $i++;
+    
         }
 
     }
@@ -219,6 +239,9 @@ function get_page_title() {
         }
 
     }
+    else if(isset($_POST['search'])) {
+        $title = "Risultati della ricerca";
+    }
     else {
 
         $title = "Tutti i post";
@@ -247,6 +270,13 @@ confirm($tot_query);
 $tot_row = fetch_array($tot_query);
 $tot_post = $tot_row['tot'];
 }
+}
+else if(isset($_POST['search'])) {
+$str = escape_string($_POST['cerca']);
+$tot_query = query("SELECT COUNT(*) as tot FROM post WHERE titolo LIKE '%$str%'");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
 }
 else {
 $tot_query = query("SELECT COUNT(*) as tot FROM post");

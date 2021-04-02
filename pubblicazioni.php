@@ -99,6 +99,13 @@ echo $cat;
 <!-- --> 
                     <button name="selectCat" type="submit" class="btn btn-primary mr-3">Filtra</button> 
                 </form>
+            </div>
+            <div>
+                <h2>CERCA POST</h2>
+                <form action="" method="POST" class="needs-validation d-flex" novalidate>
+                    <input class="form-control me-2" type="text" placeholder="Cerca..." aria-label="Cerca" name="cerca">
+                    <button class="btn btn-outline-primary" type="submit" name="search">Cerca</button>
+                </form>
             </div>        
         </div>
     </div>
