@@ -34,7 +34,7 @@ echo $link;
                     <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "professionisti.php" || basename($_SERVER['PHP_SELF']) == "profDetail.php"){echo "active";} else {echo "";} ?>" href="professionisti.php">I professionisti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "pubblicazioni.php" || basename($_SERVER['PHP_SELF']) == "pubDetail.php"){echo "active";} else {echo "";} ?>" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "pubblicazioni.php" || basename($_SERVER['PHP_SELF']) == "postDetail.php"){echo "active";} else {echo "";} ?>" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Consulenza Online</a>
