@@ -19,7 +19,7 @@
                     <a class="nav-link" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Consulenza Online</a>
+                    <a class="nav-link" href="consulenza.php">Consulenza Online</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contatti</a>
