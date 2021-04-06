@@ -71,6 +71,20 @@ class Post {
 
 }
 
+// get all posts
+$post_query = query("SELECT * FROM post");
+confirm($post_query);
+$all_post = array();
+$i = 0;
+while($row = fetch_array($post_query)) {
+    $pd = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $pdate = strftime("%d %B %Y", strtotime($pd));
+    $all_post[$i] = new Post($row['id'], $row['titolo'], $pdate, $row['cat_id'], $row['testo']);
+    $i++;
+}
+
+
 // get recent posts
 $recent_query = query("SELECT * FROM post ORDER BY post_data DESC LIMIT 4");
 confirm($recent_query);
