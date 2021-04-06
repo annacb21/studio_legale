@@ -106,7 +106,25 @@ echo $cat;
                     <input class="form-control me-2" type="text" placeholder="Cerca..." aria-label="Cerca" name="cerca">
                     <button class="btn btn-outline-primary" type="submit" name="search">Cerca</button>
                 </form>
-            </div>        
+            </div> 
+            <div>
+                <h2>ARCHIVIO POST</h2>
+                <ul>
+<!-- years via PHP -->
+<?php 
+foreach($anni as $a) {
+$anno = <<<DELIMETER
+<li>
+    <i class="fas fa-folder-open"></i>
+    <a href="pubblicazioni.php?anno={$a}">{$a}</a>
+</li>
+DELIMETER;
+echo $anno;
+}
+?>
+<!-- --> 
+                </ul>
+            </div>       
         </div>
     </div>
 

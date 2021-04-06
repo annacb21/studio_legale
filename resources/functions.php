@@ -163,6 +163,20 @@ function show_post($start) {
             }
         }
     }
+    elseif (isset($_GET['anno'])) {
+        $q = query("SELECT * FROM post WHERE YEAR(post_data) = {$_GET['anno']} ORDER BY post_data DESC LIMIT 0, 4");
+        confirm($q);
+        if($q->num_rows > 0) {
+            $i = 0;
+            while($row = fetch_array($q)) {
+                $d = $row['post_data'];
+                setlocale(LC_TIME, 'it_IT');
+                $date = strftime("%d %B %Y", strtotime($d));
+                $posts[$i] = new Post($row['id'], $row['titolo'], $date, $row['cat_id'], $row['testo']);
+                $i++;
+            }
+        }
+    }
     else {
 
         if(isset($_POST['selectCat'])) {
@@ -242,6 +256,9 @@ function get_page_title() {
     else if(isset($_POST['search'])) {
         $title = "Risultati della ricerca";
     }
+    else if(isset($_GET['anno'])) {
+        $title = "Post del {$_GET['anno']}";
+    }
     else {
 
         $title = "Tutti i post";
@@ -274,6 +291,12 @@ $tot_post = $tot_row['tot'];
 else if(isset($_POST['search'])) {
 $str = escape_string($_POST['cerca']);
 $tot_query = query("SELECT COUNT(*) as tot FROM post WHERE titolo LIKE '%$str%'");
+confirm($tot_query);
+$tot_row = fetch_array($tot_query);
+$tot_post = $tot_row['tot'];
+}
+else if(isset($_GET['anno'])) {
+$tot_query = query("SELECT COUNT(*) as tot FROM post WHERE YEAR(post_data) = {$_GET['anno']}");
 confirm($tot_query);
 $tot_row = fetch_array($tot_query);
 $tot_post = $tot_row['tot'];
