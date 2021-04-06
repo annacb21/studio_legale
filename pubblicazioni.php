@@ -51,7 +51,7 @@ $p = <<<DELIMETER
     <p>{$post->get_title()}</p>
     <p>{$post->get_data()} / in {$post->get_cat_name()}</p>
     <p>{$post->get_text_ant()}</p>
-    <a href="#">Leggi di più ...</a>
+    <a href="postDetail.php?id={$post->get_id()}">Leggi di più ...</a>
 </li>
 DELIMETER;
 echo $p;
@@ -72,7 +72,7 @@ echo $p;
 foreach($recent_post as $r) {
 $rec = <<<DELIMETER
 <li>
-    <a href="">{$r->get_title()}</a>
+    <a href="postDetail.php?id={$r->get_id()}">{$r->get_title()}</a>
 </li>
 DELIMETER;
 echo $rec;
