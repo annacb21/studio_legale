@@ -370,6 +370,20 @@ echo $pag;
 
 }
 
+}
+
+// go to the checkout page
+function checkout() {
+
+    if(isset($_POST['pay'])) {
+        $nome = escape_string($_POST['nome']);
+        $cognome = escape_string($_POST['cognome']);
+        $email = escape_string($_POST['email']);
+        $telefono = escape_string($_POST['telefono']);
+        $messaggio = escape_string($_POST['messaggio']);
+
+        redirect("checkout.php?n={$nome}&c={$cognome}&e={$email}&t={$telefono}&m={$messaggio}");
+    }
 
 }
 

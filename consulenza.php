@@ -46,6 +46,7 @@
                 <li>Avvenuto il pagamento riceverai dopo pochi giorni la consulenza che hai richiesto</li>
             </ol>
             <form action="" method="POST" class="row g-3 needs-validation" novalidate>
+                <?php checkout(); ?>
                 <div class="col-lg-6">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
