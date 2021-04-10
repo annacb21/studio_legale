@@ -36,7 +36,7 @@ if(isset($_GET['n']) && isset($_GET['c']) && isset($_GET['e']) && isset($_GET['t
     <!-- CHECKOUT -->
     <div class="row">
         <div class="col-lg-6">
-            <h1>Conferma pagamento consulenza</h1>
+            <h1>Riepilogo richiesta consulenza</h1>
             <table>
                 <tr>
                     <th>Dettaglio consulenza</th>
