@@ -26,7 +26,7 @@
     <!-- CONSULENZA ONLINE -->
     <div>
         <h1>Grazie per aver effettuato l'acquisto!</h1>
-        <?php success_payment(); ?>
+        <p>Grazie per aver effettuato il pagamento. La transazione è stata completata e una ricevuta dell'acquisto è stata inviata al tuo indirizzo email. Accedi al tuo conto PayPal per vedere i dettagli della transazione</p>
     </div>
 
     <!-- UP BUTTON -->
