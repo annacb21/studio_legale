@@ -22,7 +22,7 @@
                     <a class="nav-link" href="consulenza.php">Consulenza Online</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatti</a>
+                    <a class="nav-link" href="contatti.php">Contatti</a>
                 </li>
             </ul>
         </div>

@@ -37,10 +37,10 @@ echo $link;
                     <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "pubblicazioni.php" || basename($_SERVER['PHP_SELF']) == "postDetail.php"){echo "active";} else {echo "";} ?>" href="pubblicazioni.php">Pubblicazioni ed eventi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "consulenza.php"){echo "active";} else {echo "";} ?>" href="consulenza.php">Consulenza Online</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "consulenza.php" || basename($_SERVER['PHP_SELF']) == "checkout.php"){echo "active";} else {echo "";} ?>" href="consulenza.php">Consulenza Online</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatti</a>
+                    <a class="nav-link <?php if(basename($_SERVER['PHP_SELF']) == "contatti.php"){echo "active";} else {echo "";} ?>" href="contatti.php">Contatti</a>
                 </li>
                 <?php
                     if(isset($_SESSION['user'])) {
