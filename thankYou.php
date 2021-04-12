@@ -8,7 +8,7 @@ if(isset($_GET['c'])) {
         $update = query("UPDATE consulenze SET stato_tx = 'completato' WHERE codice_tx = '{$_GET['c']}'");
         confirm($update);
         $c = new Consulenza($row['id'], $row['nome'], $row['cognome'], $row['email'], $row['telefono'], $row['messaggio'], $row['codice_tx'], $row['stato_tx'], $row['data_tx']);
-        send_email($c);
+        send_consulenza($c);
     }
 }
 ?>

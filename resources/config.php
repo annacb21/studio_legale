@@ -13,6 +13,8 @@ defined("TEMPLATE_BACK") ? null : define("TEMPLATE_BACK", __DIR__ . DS . "templa
 
 defined("IMAGES") ? null : define("IMAGES", __DIR__ . DS . "../images");
 
+defined("UPLOADS") ? null : define("UPLOADS", __DIR__ . DS . "uploads");
+
 
 defined("DB_HOST") ? null : define("DB_HOST", "localhost");
 

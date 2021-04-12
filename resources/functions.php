@@ -6,8 +6,11 @@ require_once("classes/prof.php");
 require_once("classes/post.php");
 require_once("classes/consulenza.php");
 require_once("database.php");
+require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
+date_default_timezone_set('Etc/UTC');
+
 
 //*************************** SYSTEM FUNCTIONS ****************************
 
@@ -69,11 +72,7 @@ function anteprima($txt, $lung_max) {
 //*************************** FRONT FUNCTIONS ****************************
 
 // send an email from a contact form
-function send_email($c) {
-
-    date_default_timezone_set('Etc/UTC');
-
-    require 'vendor/autoload.php';
+function send_consulenza($c) {
 
     $toEmail = "annacb21@gmail.com"; 
 
@@ -90,6 +89,73 @@ function send_email($c) {
     } 
     else {
         set_message("Oops, qualcosa è andato storto: " . $mail->ErrorInfo, "alert-danger");  
+    }
+
+}
+
+function send_email() {
+
+    if(isset($_POST['sendEmail'])) {
+
+        $nome = escape_string($_POST['nome']);
+        $cognome = escape_string($_POST['cognome']);
+        $email = escape_string($_POST['email']);
+        $phone = escape_string($_POST['telefono']);
+        $message = escape_string($_POST['messaggio']);
+        $toEmail = "annacb21@gmail.com"; 
+
+        $mail = new PHPMailer();
+        $mail->setFrom('postmaster@andreacostacurta.it', "Admin");
+        $mail->addReplyTo($email, $nome . " " . $cognome);
+        $mail->addAddress($toEmail, 'Admin'); 
+        $mail->Subject = 'Messaggio da ' . $nome . " " . $cognome;
+        $mail->Body = "Recapito telefonico: " . $phone . "\n";
+        $mail->Body .= $message;
+
+        if($mail->send()) {
+            set_message("La tua email è stata inviata con successo", "alert-success");
+        } 
+        else {
+            set_message("Oops, qualcosa è andato storto: " . $mail->ErrorInfo, "alert-danger");  
+        }
+
+        redirect("contatti.php#segreteria");
+    }
+
+}
+
+function send_cv() {
+
+    if(isset($_POST['sendCv'])) {
+
+        $nome = escape_string($_POST['nome']);
+        $cognome = escape_string($_POST['cognome']);
+        $email = escape_string($_POST['email']);
+        $toEmail = "annacb21@gmail.com";
+
+        $cv = escape_string($_FILES['cv']['name']);
+        $cv_loc = escape_string($_FILES['cv']['tmp_name']);
+
+        move_uploaded_file($cv_loc, UPLOADS . DS . $cv);
+        
+        $mail = new PHPMailer();
+        $mail->setFrom('postmaster@andreacostacurta.it', "Admin");
+        $mail->addReplyTo($email, $nome . " " . $cognome);
+        $mail->addAddress($toEmail, 'Admin'); 
+        $mail->Subject = 'Messaggio da ' . $nome . " " . $cognome;
+        $mail->Body = "Invio candidatura di " . $nome . " " . $cognome;
+        $mail->addAttachment(UPLOADS . DS . $cv);
+        if (!$mail->addAttachment(UPLOADS . DS . $cv)) {
+            set_message("Impossibile caricare il file: " . $cv, "alert-danger"); 
+        }
+        if($mail->send()) {
+            set_message("La tua email è stata inviata con successo", "alert-success");
+        } 
+        else {
+            set_message("Oops, qualcosa è andato storto: " . $mail->ErrorInfo, "alert-danger");  
+        }
+        unlink(UPLOADS . DS . $cv);
+        redirect("contatti.php#lavora");
     }
 
 }
