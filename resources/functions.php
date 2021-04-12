@@ -4,6 +4,7 @@ require_once("classes/studio.php");
 require_once("classes/area.php");
 require_once("classes/prof.php");
 require_once("classes/post.php");
+require_once("classes/consulenza.php");
 require_once("database.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -68,42 +69,27 @@ function anteprima($txt, $lung_max) {
 //*************************** FRONT FUNCTIONS ****************************
 
 // send an email from a contact form
-function send_email($page) {
+function send_email($c) {
 
     date_default_timezone_set('Etc/UTC');
 
     require 'vendor/autoload.php';
 
-    if(isset($_POST['sendEmail'])) {
+    $toEmail = "annacb21@gmail.com"; 
 
-        $name = $_POST['name'];
-        $cognome = $_POST['cognome'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $message = $_POST['message'];
-        $toEmail = "costacurta.andrea@gmail.com"; 
+    $mail = new PHPMailer();
+    $mail->setFrom('anna.cisotto21@gmail.com', "Admin");
+    $mail->addReplyTo($c->get_email(), $c->get_nome() . " " . $c->get_cognome());
+    $mail->addAddress($toEmail, 'Admin'); 
+    $mail->Subject = 'Richiesta consulenza da ' . $c->get_nome() . " " . $c->get_cognome();
+    $mail->Body = "Recapito telefonico: " . $c->get_phone() . "\n";
+    $mail->Body .= $c->get_msg();
 
-        $mail = new PHPMailer();
-        $mail->setFrom('postmaster@andreacostacurta.it', "Andrea Costacurta");
-        $mail->addReplyTo($email, $nome . " " . $cognome);
-        $mail->addAddress($toEmail, 'Andrea Costacurta'); 
-        $mail->Subject = 'Messaggio da ' . $name . " " . $cognome;
-        $mail->Body = "Recapito telefonico: " . $phone . "\n";
-        $mail->Body .= $message;
-
-        if($mail->send()) {
-            set_message("La tua email è stata inviata con successo", "alert-success");
-        } 
-        else {
-            set_message("Oops, qualcosa è andato storto: " . $mail->ErrorInfo, "alert-danger");  
-        }
-
-        if($page == 'home') {
-            redirect("index.php#prenotazioni");
-        }
-        elseif($page == 'contatti') {
-            redirect("contatti.php#contatto");
-        }
+    if($mail->send()) {
+        set_message("La tua email è stata inviata con successo", "alert-success");
+    } 
+    else {
+        set_message("Oops, qualcosa è andato storto: " . $mail->ErrorInfo, "alert-danger");  
     }
 
 }
@@ -376,13 +362,20 @@ echo $pag;
 function checkout() {
 
     if(isset($_POST['pay'])) {
+
         $nome = escape_string($_POST['nome']);
         $cognome = escape_string($_POST['cognome']);
         $email = escape_string($_POST['email']);
         $telefono = escape_string($_POST['telefono']);
         $messaggio = escape_string($_POST['messaggio']);
+        $codice = bin2hex(random_bytes(20));
+        $stato = "in attesa";
+        $id = uniqid();
 
-        redirect("checkout.php?n={$nome}&c={$cognome}&e={$email}&t={$telefono}&m={$messaggio}");
+        $query = query("INSERT INTO consulenze(id,nome,cognome,email,telefono,messaggio,codice_tx,stato_tx,data_tx) VALUES ('{$id}', '{$nome}', '{$cognome}', '{$email}', '{$telefono}', '{$messaggio}', '{$codice}', '{$stato}', now())");
+        confirm($query);
+
+        redirect("checkout.php?id={$id}");
     }
 
 }

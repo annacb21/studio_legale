@@ -1,11 +1,10 @@
 <?php 
 require_once("resources/config.php"); 
-if(isset($_GET['n']) && isset($_GET['c']) && isset($_GET['e']) && isset($_GET['t']) && isset($_GET['m'])) {
-    $nome = $_GET['n'];
-    $cognome = $_GET['c'];
-    $email = $_GET['e'];
-    $telefono = $_GET['t'];
-    $messaggio = $_GET['m'];
+if(isset($_GET['id'])) {
+    $query = query("SELECT * FROM consulenze WHERE id = '{$_GET['id']}'");
+    confirm($query);
+    $row = fetch_array($query);
+    $cons = new Consulenza($row['id'], $row['nome'], $row['cognome'], $row['email'], $row['telefono'], $row['messaggio'], $row['codice_tx'], $row['stato_tx'], $row['data_tx']);
 }
 ?>
 
@@ -42,16 +41,16 @@ if(isset($_GET['n']) && isset($_GET['c']) && isset($_GET['e']) && isset($_GET['t
                     <th>Dettaglio consulenza</th>
                 </tr>
                 <tr>
-                    <td><?php echo $nome . " " . $cognome; ?></td>
+                    <td><?php echo $cons->get_nome() . " " . $cons->get_cognome(); ?></td>
                 </tr>
                 <tr>
-                    <td><?php echo $email; ?></td>
+                    <td><?php echo $cons->get_email(); ?></td>
                 </tr>
                 <tr>
-                    <td><?php echo $telefono; ?></td>
+                    <td><?php echo $cons->get_phone(); ?></td>
                 </tr>
                 <tr>
-                    <td><?php echo $messaggio; ?></td>
+                    <td><?php echo $cons->get_msg(); ?></td>
                 </tr>
             </table>
         </div>
@@ -61,44 +60,6 @@ if(isset($_GET['n']) && isset($_GET['c']) && isset($_GET['e']) && isset($_GET['t
             <div id="paypal-button-container"></div>
         </div>
     </div>
-
-    <script>
-        var FUNDING_SOURCES = [
-            paypal.FUNDING.PAYPAL,
-            paypal.FUNDING.CARD
-        ];
-        // Loop over each funding source / payment method
-        FUNDING_SOURCES.forEach(function(fundingSource) {
-
-            // Initialize the buttons
-            var button = paypal.Buttons({
-                createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                    amount: {
-                        value: '50.00'
-                    }
-                    }]
-                });
-                },
-                onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                });
-                },
-                fundingSource: fundingSource
-            });
-
-            // Check if the button is eligible
-            if (button.isEligible()) {
-
-                // Render the standalone button for that funding source
-                button.render('#paypal-button-container');
-            }
-        });
-        
-    </script>
-
 
     <!-- UP BUTTON -->
     <button type="button" class="btn rounded-circle shadow btn-lg" id="upBtn" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
@@ -110,5 +71,48 @@ if(isset($_GET['n']) && isset($_GET['c']) && isset($_GET['e']) && isset($_GET['t
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="js/scrollToTop.js"></script>
+    <script src="js/paypal.js"></script>
+    <script>
+        var FUNDING_SOURCES = [
+        paypal.FUNDING.PAYPAL,
+        paypal.FUNDING.CARD
+        ];
+        // Loop over each funding source / payment method
+        FUNDING_SOURCES.forEach(function(fundingSource) {
+
+            // Initialize the buttons
+            var button = paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '50.00'
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        console.log(details);
+                        window.location.replace("http://localhost/legale/thankYou.php?c=<?php echo $cons->get_codex(); ?>");
+                    });
+                },
+                onCancel: function(data) {
+                    window.location.replace("http://localhost/legale/cancel.php?c=<?php echo $cons->get_codex(); ?>");
+                },
+                fundingSource: fundingSource,
+                style: {
+                    shape: 'pill'
+                }
+            });
+
+            // Check if the button is eligible
+            if (button.isEligible()) {
+                // Render the standalone button for that funding source
+                button.render('#paypal-button-container');
+            }
+
+        });
+    </script>
 </body>
 </html>

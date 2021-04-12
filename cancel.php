@@ -1,4 +1,14 @@
-<?php require_once("resources/config.php"); ?>
+<?php 
+require_once("resources/config.php"); 
+if(isset($_GET['c'])) {
+    $query = query("SELECT * FROM consulenze WHERE codice_tx = '{$_GET['c']}'");
+    confirm($query);
+    if(mysqli_num_rows($query) > 0) {
+        $update = query("UPDATE consulenze SET stato_tx = 'cancellato' WHERE codice_tx = '{$_GET['c']}'");
+        confirm($update);
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">

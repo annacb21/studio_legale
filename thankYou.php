@@ -1,4 +1,17 @@
-<?php require_once("resources/config.php"); ?>
+<?php
+require_once("resources/config.php"); 
+if(isset($_GET['c'])) {
+    $query = query("SELECT * FROM consulenze WHERE codice_tx = '{$_GET['c']}'");
+    confirm($query);
+    if(mysqli_num_rows($query) > 0) {
+        $row = fetch_array($query);
+        $update = query("UPDATE consulenze SET stato_tx = 'completato' WHERE codice_tx = '{$_GET['c']}'");
+        confirm($update);
+        $c = new Consulenza($row['id'], $row['nome'], $row['cognome'], $row['email'], $row['telefono'], $row['messaggio'], $row['codice_tx'], $row['stato_tx'], $row['data_tx']);
+        send_email($c);
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -26,6 +39,7 @@
     <!-- CONSULENZA ONLINE -->
     <div>
         <h1>Grazie per aver effettuato l'acquisto!</h1>
+        <?php display_message(); ?>
         <p>Grazie per aver effettuato il pagamento. La transazione è stata completata e una ricevuta dell'acquisto è stata inviata al tuo indirizzo email. Accedi al tuo conto PayPal per vedere i dettagli della transazione</p>
     </div>
 
