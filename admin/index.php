@@ -41,12 +41,13 @@ $tot_cons = $tot_row2['tot'];
 
     <!-- MAIN CONTENT -->
     <div class="main-admin">
-        <header>
-            <h2><i class="fas fa-chart-line"></i>Dashboard</h2>
-            <div class="user-wrapper">
+        <header class="d-flex justify-content-between">
+            <h2><i class="fas fa-bars"></i>Dashboard</h2>
+            <div class="user-wrapper d-flex align-items-center">
                 <img src="../images/user1.png" alt="Icona profilo utente">
                 <div>
-                    <p class="h4"><?php echo $user->get_name() . " " . $user->get_surname(); ?></p>
+                    <p class="mb-0"><?php echo $user->get_name(); ?></p>
+                    <small class="d-inline-block text-muted">Super admin</small>
                 </div>
             </div>
         </header>
