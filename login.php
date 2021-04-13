@@ -21,6 +21,21 @@
     <!-- LOGIN -->
     <div>
         <h1>Login Amministratore</h1>
+        <?php display_message(); ?>
+        <form action="" method="POST" class="needs-validation" novalidate>
+            <?php login(); ?>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                <div class="invalid-feedback">Inserire il proprio username da amministratore</div> 
+            </div>
+            <div class="mb-3">
+                <label for="psw" class="form-label">Password</label>
+                <input type="password" name="psw" class="form-control" id="psw" placeholder="Password" required>
+                <div class="invalid-feedback">Inserire la propria password da amministratore</div>
+            </div>
+            <button type="submit" name="login" class="btn btn-primary">Accedi</button>
+        </form>
     </div>
 
     <!-- UP BUTTON -->
