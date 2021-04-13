@@ -5,6 +5,7 @@ require_once("classes/area.php");
 require_once("classes/prof.php");
 require_once("classes/post.php");
 require_once("classes/consulenza.php");
+require_once("classes/user.php");
 require_once("database.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
