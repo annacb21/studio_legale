@@ -81,7 +81,7 @@
     margin-right: .5rem;
 }
 
-/* MAIN CONTENT */
+/* MAIN CONTENT CARDS */
 .main-admin {
     margin-left: 20rem;
 }
@@ -114,4 +114,60 @@
 
 .cards .card-header {
     background-color: #7b113a;
+}
+
+/* RECENT POST */
+.recent {
+    margin-top: 3.5rem;
+}
+
+.recent .card {
+    border: none;
+    padding: 0;
+}
+
+.recent .card-header {
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #FFF;
+    padding: 1rem;
+}
+
+.recent .card-header button {
+    background-color: #7b113a;
+    color: #FFF;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+}
+
+.recent .card-header button i {
+    padding-left: 1rem;
+}
+
+.recent table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.recent thead tr {
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.recent thead td {
+    font-weight: 600;
+}
+
+.recent td {
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    color: #222;
+}
+
+.state-succ {
+    color: #007944 !important;
+}
+
+.state-no {
+    color: #d44000 !important;
 }
