@@ -67,6 +67,12 @@ class Post {
         return (count($words = explode(' ', $t)) > 150) ? implode(' ', array_slice($words, 0, 150)) . "..." : $t;
     }
 
+    // get title ant 
+    public function get_title_ant() {
+        $t = $this->titolo;
+        return (count($words = explode(' ', $t)) > 7) ? implode(' ', array_slice($words, 0, 7)) . "..." : $t;
+    }
+
 }
 
 ?>
