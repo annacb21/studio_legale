@@ -1,5 +1,17 @@
 <?php
 require_once("resources/config.php"); 
+// get all posts
+$post_query = query("SELECT * FROM post");
+confirm($post_query);
+$all_post = array();
+$i = 0;
+while($row = fetch_array($post_query)) {
+    $pd = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $pdate = strftime("%d %B %Y", strtotime($pd));
+    $all_post[$i] = new Post($row['id'], $row['titolo'], $pdate, $row['cat_id'], $row['testo']);
+    $i++;
+}
 if(isset($_GET['id'])) {
     $post = $all_post[$_GET['id']-1];
 }

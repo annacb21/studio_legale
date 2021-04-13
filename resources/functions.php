@@ -6,7 +6,6 @@ require_once("classes/prof.php");
 require_once("classes/post.php");
 require_once("classes/consulenza.php");
 require_once("database.php");
-require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 date_default_timezone_set('Etc/UTC');
@@ -74,6 +73,8 @@ function anteprima($txt, $lung_max) {
 // send an email from a contact form
 function send_consulenza($c) {
 
+    require 'vendor/autoload.php';
+
     $toEmail = "annacb21@gmail.com"; 
 
     $mail = new PHPMailer();
@@ -94,6 +95,8 @@ function send_consulenza($c) {
 }
 
 function send_email() {
+
+    require 'vendor/autoload.php';
 
     if(isset($_POST['sendEmail'])) {
 
@@ -125,6 +128,8 @@ function send_email() {
 }
 
 function send_cv() {
+
+    require 'vendor/autoload.php';
 
     if(isset($_POST['sendCv'])) {
 
@@ -168,7 +173,7 @@ function login() {
         $username = escape_string($_POST['username']);
         $psw = escape_string($_POST['psw']);
 
-        $query = query("SELECT * FROM users WHERE username = '{$username}' LIMIT 1");
+        $query = query("SELECT * FROM utenti WHERE username = '{$username}' LIMIT 1");
         confirm($query);
 
         $row = fetch_array($query);
@@ -178,7 +183,7 @@ function login() {
             redirect("login.php");
         }
         else {
-            $_SESSION['user'] = $row['user_id'];
+            $_SESSION['user'] = $row['username'];
             redirect("admin/");
         }
 

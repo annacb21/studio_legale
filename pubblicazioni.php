@@ -8,6 +8,27 @@ $page = get_page();
 $pagination_start = ($page - 1) * 4;
 
 $curr_posts = show_post($pagination_start);
+
+// get recent posts
+$recent_query = query("SELECT * FROM post ORDER BY post_data DESC LIMIT 4");
+confirm($recent_query);
+$recent_post = array();
+$j = 0;
+while($row = fetch_array($recent_query)) {
+    $pd = $row['post_data'];
+    setlocale(LC_TIME, 'it_IT');
+    $pdate = strftime("%d %B %Y", strtotime($pd));
+    $recent_post[$j] = new Post($row['id'], $row['titolo'], $pdate, $row['cat_id'], $row['testo']);
+    $j++;
+}
+
+// get years of the posts
+$year_query = query("SELECT DISTINCT YEAR(post_data) as y FROM post");
+confirm($year_query);
+$anni = array();
+while($row = fetch_array($year_query)) {
+    array_push($anni, $row['y']);
+}
 ?>
 
 <!DOCTYPE html>
