@@ -70,7 +70,7 @@ class Post {
     // get title ant 
     public function get_title_ant() {
         $t = $this->titolo;
-        return (count($words = explode(' ', $t)) > 7) ? implode(' ', array_slice($words, 0, 7)) . "..." : $t;
+        return (count($words = explode(' ', $t)) > 20) ? implode(' ', array_slice($words, 0, 20)) . "..." : $t;
     }
 
 }
