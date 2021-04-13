@@ -20,10 +20,8 @@ if(!isset($_SESSION['user'])) {
 </head>
 <body>
     
-    <!-- NAVBAR -->
-
-    <!-- CONSULENZA ONLINE -->
-    <h1>Admin</h1>
+    <!-- SIDEBAR -->
+    <?php include(TEMPLATE_BACK . DS . "sidebar.php"); ?>
 
     <!-- FOOTER -->
 
