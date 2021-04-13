@@ -51,5 +51,12 @@ echo $studio;
             <p>federica.turlon@servicepec.it</p>
         </div>
     </div>
-    <p>P.IVA 09304481006 <span>Privacy Policy</span> <span>Cookie Policy</span></p>
+    <div class="row">
+        <div class="col-lg-6">
+            <p>P.IVA 09304481006 <span>Privacy Policy</span> <span>Cookie Policy</span></p>
+        </div>
+        <div class="col-lg-6">
+            <a role="button" class="btn btn-secondary" href="login.php"><i class="fas fa-key"></i></a>
+        </div>
+    </div>
 </footer>
