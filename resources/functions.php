@@ -457,7 +457,7 @@ function checkout() {
 // show admin dashboard content dynamically
 function show_admin_content() {
 
-    if($_SERVER['REQUEST_URI'] == "/costacurta/admin/" || $_SERVER['REQUEST_URI'] == "/costacurta/admin/index.php" ) {
+    if($_SERVER['REQUEST_URI'] == "/legale/admin/" || $_SERVER['REQUEST_URI'] == "/legale/admin/index.php" ) {
         include(TEMPLATE_BACK . "/dashboard.php");
     }
 
@@ -552,11 +552,11 @@ function show_admin_content() {
 }
 
 // set the admin page title dynamically
-function get_admin_h1() {
+function get_admin_page() {
 
     $title = "";
 
-    if($_SERVER['REQUEST_URI'] == "/costacurta/admin/" || $_SERVER['REQUEST_URI'] == "/costacurta/admin/index.php" ) {
+    if($_SERVER['REQUEST_URI'] == "/legale/admin/" || $_SERVER['REQUEST_URI'] == "/legale/admin/index.php" ) {
         $title = "Dashboard";
     }
 
