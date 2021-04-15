@@ -1,7 +1,7 @@
 <main>
     <?php display_message(); ?>
-    <button type="button" class="btn btn-lg action-button"><i class="fas fa-plus"></i>Aggiungi nuovo post</button>
-    <form action="" method="post" class="needs-validation mt-4" novalidate>
+    <button type="button" class="btn btn-lg action-button" onclick="toggle_post_form();"><i class="fas fa-plus"></i>Aggiungi nuovo post</button>
+    <form action="" method="post" class="needs-validation mt-4" id="add-post-form" novalidate>
         <?php addPost(); ?>
         <div class="mb-3">
             <label for="titolo" class="form-label">Titolo</label>
@@ -29,17 +29,25 @@
 
 <script src="https://cdn.tiny.cloud/1/vucbpm5krf4dg1gnij1tc4opj2wlgcqa8f8l0grw3xr4zkga/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-      tinymce.init({
-        selector: '#testo',
-        plugins: [
-            "advlist autolink lists link image charmap print preview anchor paste",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste"
-        ],
-        toolbar: "insertfile undo redo paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-        entities: "160,nbsp",
-        entity_encoding: "named",
-        entity_encoding: "raw"
-      });
+    tinymce.init({
+    selector: '#testo',
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor paste",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    entities: "160,nbsp",
+    entity_encoding: "named",
+    entity_encoding: "raw"
+    });
+
+    function toggle_post_form() {
+       var form = document.getElementById("add-post-form");
+       if(form.style.display == 'block')
+            form.style.display = 'none';
+       else
+            form.style.display = 'block';
+    }
 </script>
 <script src="../js/validate.js"></script>

@@ -362,3 +362,7 @@
     }
 }
 
+/* POST */
+#add-post-form {
+    display: none;
+}
