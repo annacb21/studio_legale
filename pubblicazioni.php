@@ -56,11 +56,6 @@ while($row = fetch_array($year_query)) {
 
     <div class="row">
         <h1><?php echo get_page_title(); ?></h1>
-        <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status" id="loader">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
         <!-- POST -->
         <div class="col-lg-7">
             <ul id="posts">

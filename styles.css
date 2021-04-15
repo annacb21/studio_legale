@@ -5,6 +5,16 @@
 }
 
 /* ADMIN CSS */
+.action-button {
+    background-color: #7b113a !important;
+    color: #FFF !important;
+    padding: 0.7rem 2rem !important;
+}
+
+.action-button i {
+    margin-right: 2rem;
+}
+
 /* SIDEBAR */
 .sidebar {
     width: 20rem;
@@ -167,14 +177,14 @@
     padding: 1rem;
 }
 
-.recent .card-header button {
+.recent .card-header a {
     background-color: #7b113a;
     color: #FFF;
     font-size: .8rem;
     padding: .5rem 1rem;
 }
 
-.recent .card-header button i {
+.recent .card-header a i {
     padding-left: 1rem;
 }
 
@@ -351,3 +361,4 @@
         display: none;
     }
 }
+

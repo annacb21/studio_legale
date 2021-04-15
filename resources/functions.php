@@ -461,8 +461,8 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/dashboard.php");
     }
 
-    if(isset($_GET['account'])) {
-        include(TEMPLATE_BACK . "/account.php");
+    if(isset($_GET['post'])) {
+        include(TEMPLATE_BACK . "/post.php");
     }
 
     if(isset($_GET['profile'])) {
@@ -560,8 +560,8 @@ function get_admin_page() {
         $title = "Dashboard";
     }
 
-    if(isset($_GET['account'])) {
-        $title = "Impostazioni account";
+    if(isset($_GET['post'])) {
+        $title = "Gestione post";
     }
 
     if(isset($_GET['quotes'])) {
@@ -610,6 +610,21 @@ function get_admin_page() {
 
     echo $title;
 
+}
+
+// add new post
+function addPost() {
+    if(isset($_POST['addPost'])) {
+        $titolo = escape_string($_POST['titolo']);
+        $cat = escape_string($_POST['categoria']);
+        $testo = escape_string($_POST['testo']);
+
+        $query = query("INSERT INTO post(titolo,post_data,cat_id,testo) VALUES ('{$titolo}', now(), '{$cat}', '{$testo}')");
+        confirm($query);
+        set_message("Post pubblicato con successo", "alert-success");
+        redirect("index.php?post");
+
+    }
 }
 
 
