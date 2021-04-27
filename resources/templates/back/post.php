@@ -47,7 +47,7 @@ while($row = fetch_array($post_query)) {
             <h3 class="mb-0">Post pubblicati</h3>
         </div>
         <div class="card-body">
-            <table>
+            <table id="post-table-mobile">
                 <thead>
                     <tr>
                         <td>Titolo post</td>
@@ -67,6 +67,19 @@ while($row = fetch_array($post_query)) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <div class="row" id="post-card-mobile">
+                <?php foreach($all_post as $p): ?>
+                    <div class="card shadow rounded mb-2">
+                        <div class="card-body">
+                            <p class="card-title fw-bolder"><?php echo $p->get_title(); ?></p>
+                            <p class="card-subtitle mb-2 text-muted"><?php echo $p->get_data(); ?></p>
+                            <p class="card-text"><?php echo $p->get_cat_name(); ?></p>
+                            <a class="btn btn-primary" href="#" role="button">Modifica</a>
+                            <a class="btn btn-danger" href="#" role="button">Elimina</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>   
+            </div>
     </div>
 </main>
 
