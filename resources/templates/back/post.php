@@ -62,7 +62,7 @@ while($row = fetch_array($post_query)) {
                         <td><?php echo $p->get_title_ant(); ?></td>
                         <td><?php echo $p->get_cat_name(); ?></td>
                         <td><?php echo $p->get_data(); ?></td>
-                        <td class="d-flex justify-content-between"><a class="btn btn-primary" href="#" role="button">Modifica</a><a class="btn btn-danger" href="#" role="button">Elimina</a></td>
+                        <td class="d-flex justify-content-between"><a class="btn btn-primary" href="../admin/index.php?edit-post&id=<?php echo $p->get_id(); ?>" role="button">Modifica</a><a class="btn btn-danger" href="#" role="button">Elimina</a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -74,7 +74,7 @@ while($row = fetch_array($post_query)) {
                             <p class="card-title fw-bolder"><?php echo $p->get_title(); ?></p>
                             <p class="card-subtitle mb-2 text-muted"><?php echo $p->get_data(); ?></p>
                             <p class="card-text"><?php echo $p->get_cat_name(); ?></p>
-                            <a class="btn btn-primary" href="#" role="button">Modifica</a>
+                            <a class="btn btn-primary" href="../admin/index.php?edit-post&id=<?php echo $p->get_id(); ?>" role="button">Modifica</a>
                             <a class="btn btn-danger" href="#" role="button">Elimina</a>
                         </div>
                     </div>
