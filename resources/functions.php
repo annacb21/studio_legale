@@ -477,6 +477,10 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/cons.php");
     }
 
+    if(isset($_GET['view-con'])) {
+        include(TEMPLATE_BACK . "/view-con.php");
+    }
+
     if(isset($_GET['logout'])) {
         include(TEMPLATE_BACK . "/logout.php");
     }
@@ -502,6 +506,10 @@ function get_admin_page() {
 
     if(isset($_GET['cons'])) {
         $title = "Gestione consulenze online";
+    }
+
+    if(isset($_GET['view-con'])) {
+        $title = "Visualizza dettagli consulenza";
     }
 
     echo $title;

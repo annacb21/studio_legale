@@ -6,13 +6,13 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a href="index.php" class="<?php if(!isset($_GET['post']) && !isset($_GET['edit-post']) && !isset($_GET['cons']) && !isset($_GET['edit-cons'])){echo "admin-active";} else {echo "";} ?>"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="index.php" class="<?php if(!isset($_GET['post']) && !isset($_GET['edit-post']) && !isset($_GET['cons']) && !isset($_GET['view-con'])){echo "admin-active";} else {echo "";} ?>"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
             </li>
             <li>
                 <a href="index.php?post" class="<?php if(isset($_GET['post']) || isset($_GET['edit-post'])){echo "admin-active";} else {echo "";} ?>"><i class="far fa-newspaper"></i><span>Post</span></a>
             </li>
             <li>
-                <a href="index.php?cons" class="<?php if(isset($_GET['cons']) || isset($_GET['edit-cons'])){echo "admin-active";} else {echo "";} ?>"><i class="fas fa-balance-scale"></i><span>Consulenze</span></a>
+                <a href="index.php?cons" class="<?php if(isset($_GET['cons']) || isset($_GET['view-con'])){echo "admin-active";} else {echo "";} ?>"><i class="fas fa-balance-scale"></i><span>Consulenze</span></a>
             </li>
             <li>
                 <a href="" class="<?php if(basename($_SERVER['PHP_SELF']) == "utenti.php" || basename($_SERVER['PHP_SELF']) == "u.php"){echo "admin-active";} else {echo "";} ?>"><i class="fas fa-users"></i><span>Utenti</span></a>

@@ -36,7 +36,7 @@ while($row = fetch_array($cons_query)) {
                         <td><?php echo $c->get_phone(); ?></td>
                         <td><?php echo $c->get_data(); ?></td>
                         <td class="<?php if($c->get_state() == 'completato'){echo 'state state-succ';} else {echo 'state state-no';} ?>"><i class="fas fa-check-circle"></i><span><?php echo $c->get_state(); ?></span></td>
-                        <td><a class="btn btn-primary" href="../admin/index.php?view-cons&id=<?php echo $c->get_id(); ?>" role="button">Visualizza</a></td>
+                        <td><a class="btn btn-primary" href="../admin/index.php?view-con&id=<?php echo $c->get_id(); ?>" role="button">Visualizza</a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -54,7 +54,7 @@ while($row = fetch_array($cons_query)) {
                             <li class="list-group-item <?php if($c->get_state() == 'completato'){echo 'state state-succ';} else {echo 'state state-no';} ?>"><i class="fas fa-check-circle"></i><span><?php echo $c->get_state(); ?></span></li>
                         </ul>
                         <div class="card-body">
-                            <a class="btn btn-primary" href="../admin/index.php?view-cons&id=<?php echo $c->get_id(); ?>" role="button">Visualizza</a>
+                            <a class="btn btn-primary" href="../admin/index.php?view-con&id=<?php echo $c->get_id(); ?>" role="button">Visualizza</a>
                         </div>
                     </div>
                 <?php endforeach; ?>   
