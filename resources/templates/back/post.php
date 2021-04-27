@@ -67,7 +67,7 @@ while($row = fetch_array($post_query)) {
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <p class="modal-title" id="deletePostModalLabel">Elimina post</p>
+                                        <p class="modal-title fw-bold fs-5" id="deletePostModalLabel">Elimina post</p>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -99,7 +99,7 @@ while($row = fetch_array($post_query)) {
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <p class="modal-title" id="deletePostModalLabel">Elimina post</p>
+                                    <p class="modal-title fw-bold fs-5" id="deletePostModalLabel">Elimina post</p>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
