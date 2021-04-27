@@ -473,6 +473,10 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/delete-post.php");
     }
 
+    if(isset($_GET['cons'])) {
+        include(TEMPLATE_BACK . "/cons.php");
+    }
+
     if(isset($_GET['logout'])) {
         include(TEMPLATE_BACK . "/logout.php");
     }
@@ -494,6 +498,10 @@ function get_admin_page() {
 
     if(isset($_GET['edit-post'])) {
         $title = "Modifica post";
+    }
+
+    if(isset($_GET['cons'])) {
+        $title = "Gestione consulenze online";
     }
 
     echo $title;

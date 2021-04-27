@@ -101,7 +101,7 @@ while($row = fetch_array($rec_cons_query)) {
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3 class="mb-0">Ultime consulenze richieste</h3>
-                    <a role="button" class="btn" href="index.php">Vedi tutti<i class="fas fa-arrow-right"></i></a>
+                    <a role="button" class="btn" href="index.php?cons">Vedi tutti<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="card-body">
                     <table>
