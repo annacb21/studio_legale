@@ -86,6 +86,11 @@ td .btn-danger {
     font-size: 1.1rem;
 }
 
+.sidebar-menu a:hover {
+    color: #FFF;
+    font-weight: 700;
+}
+
 .sidebar-menu i {
     padding-right: 1rem;
 }
