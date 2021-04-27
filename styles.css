@@ -20,7 +20,7 @@
     padding: 0;
 }
 
-.recent .card-header, .post-main .card-header {
+.recent .card-header, .post-main .card-header, .cons-main .card-header {
     border-bottom: 1px solid #f0f0f0;
     background-color: #FFF;
     padding: 1rem;
@@ -234,6 +234,11 @@ td .btn-danger {
     display: none;
 }
 
+/* CONSULENZE */
+#cons-card-mobile {
+    display: none;
+}
+
 /* MEDIA QUERY */
 /* SMALL LAPTOP */
 @media only screen and (max-width: 1200px) {
@@ -380,6 +385,14 @@ td .btn-danger {
     }
 
     #post-table-mobile {
+        display: none;
+    }
+
+    #cons-card-mobile {
+        display: block;
+    }
+
+    #cons-table-mobile {
         display: none;
     }
 }
