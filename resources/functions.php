@@ -481,6 +481,10 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/view-con.php");
     }
 
+    if(isset($_GET['users'])) {
+        include(TEMPLATE_BACK . "/users.php");
+    }
+
     if(isset($_GET['logout'])) {
         include(TEMPLATE_BACK . "/logout.php");
     }
@@ -510,6 +514,10 @@ function get_admin_page() {
 
     if(isset($_GET['view-con'])) {
         $title = "Visualizza dettagli consulenza";
+    }
+
+    if(isset($_GET['users'])) {
+        $title = "Gestione utenti";
     }
 
     echo $title;
