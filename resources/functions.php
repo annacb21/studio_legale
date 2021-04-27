@@ -469,8 +469,8 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/edit-post.php");
     }
 
-    if(isset($_GET['delete_post'])) {
-        include(TEMPLATE_BACK . "/delete_post.php");
+    if(isset($_GET['delete-post'])) {
+        include(TEMPLATE_BACK . "/delete-post.php");
     }
 
     if(isset($_GET['logout'])) {
