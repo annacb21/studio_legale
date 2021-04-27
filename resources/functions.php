@@ -465,84 +465,12 @@ function show_admin_content() {
         include(TEMPLATE_BACK . "/post.php");
     }
 
-    if(isset($_GET['profile'])) {
-        include(TEMPLATE_BACK . "/profile.php");
+    if(isset($_GET['edit-post'])) {
+        include(TEMPLATE_BACK . "/edit-post.php");
     }
 
-    if(isset($_GET['quotes'])) {
-        include(TEMPLATE_BACK . "/quotes.php");
-    }
-
-    if(isset($_GET['pubs'])) {
-        include(TEMPLATE_BACK . "/pubs.php");
-    }
-
-    if(isset($_GET['gallery'])) {
-        include(TEMPLATE_BACK . "/gallery.php");
-    }
-
-    if(isset($_GET['video'])) {
-        include(TEMPLATE_BACK . "/video.php");
-    }
-
-    if(isset($_GET['articles'])) {
-        include(TEMPLATE_BACK . "/articles.php");
-    }
-
-    if(isset($_GET['aff'])) {
-        include(TEMPLATE_BACK . "/aff.php");
-    }
-
-    if(isset($_GET['contatti'])) {
-        include(TEMPLATE_BACK . "/contatti.php");
-    }
-
-    if(isset($_GET['edit-quote'])) {
-        include(TEMPLATE_BACK . "/edit-quote.php");
-    }
-
-    if(isset($_GET['edit_profile'])) {
-        include(TEMPLATE_BACK . "/edit_profile.php");
-    }
-
-    if(isset($_GET['edit_pub'])) {
-        include(TEMPLATE_BACK . "/edit_pub.php");
-    }
-
-    if(isset($_GET['edit_art'])) {
-        include(TEMPLATE_BACK . "/edit_art.php");
-    }
-
-    if(isset($_GET['delete_dist'])) {
-        include(TEMPLATE_BACK . "/delete_dist.php");
-    }
-
-    if(isset($_GET['delete_serv'])) {
-        include(TEMPLATE_BACK . "/delete_serv.php");
-    }
-
-    if(isset($_GET['delete_pub'])) {
-        include(TEMPLATE_BACK . "/delete_pub.php");
-    }
-
-    if(isset($_GET['delete_foto'])) {
-        include(TEMPLATE_BACK . "/delete_foto.php");
-    }
-
-    if(isset($_GET['delete_video'])) {
-        include(TEMPLATE_BACK . "/delete_video.php");
-    }
-
-    if(isset($_GET['delete_art'])) {
-        include(TEMPLATE_BACK . "/delete_art.php");
-    }
-
-    if(isset($_GET['delete_aff'])) {
-        include(TEMPLATE_BACK . "/delete_aff.php");
-    }
-
-    if(isset($_GET['delete_link'])) {
-        include(TEMPLATE_BACK . "/delete_link.php");
+    if(isset($_GET['delete_post'])) {
+        include(TEMPLATE_BACK . "/delete_post.php");
     }
 
     if(isset($_GET['logout'])) {
@@ -564,48 +492,8 @@ function get_admin_page() {
         $title = "Gestione post";
     }
 
-    if(isset($_GET['quotes'])) {
-        $title = "Citazioni";
-    }
-
-    if(isset($_GET['profile'])) {
-        $title = "Profilo";
-    }
-
-    if(isset($_GET['pubs'])) {
-        $title = "Pubblicazioni";
-    }
-
-    if(isset($_GET['gallery'])) {
-        $title = "Gallery foto";
-    }
-
-    if(isset($_GET['video'])) {
-        $title = "Video e multimedia";
-    }
-
-    if(isset($_GET['articles'])) {
-        $title = "News, eventi e libri";
-    }
-
-    if(isset($_GET['aff'])) {
-        $title = "Affiliazioni e link utili";
-    }
-
-    if(isset($_GET['edit-quote'])) {
-        $title = "Modifica citazione";
-    }
-
-    if(isset($_GET['edit_profile'])) {
-        $title = "Modifica profilo";
-    }
-
-    if(isset($_GET['edit_pub'])) {
-        $title = "Modifica pubblicazione";
-    }
-
-    if(isset($_GET['edit_art'])) {
-        $title = "Modifica news";
+    if(isset($_GET['edit-post'])) {
+        $title = "Modifica post";
     }
 
     echo $title;
