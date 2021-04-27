@@ -20,7 +20,7 @@
     padding: 0;
 }
 
-.recent .card-header, .post-main .card-header, .cons-main .card-header {
+.recent .card-header, .post-main .card-header, .cons-main .card-header, .users-main .card-header {
     border-bottom: 1px solid #f0f0f0;
     background-color: #FFF;
     padding: 1rem;
@@ -239,6 +239,15 @@ td .btn-danger {
     display: none;
 }
 
+/* UTENTI */
+#add-user-form {
+    display: none;
+}
+
+#user-card-mobile {
+    display: none;
+}
+
 /* MEDIA QUERY */
 /* SMALL LAPTOP */
 @media only screen and (max-width: 1200px) {
@@ -393,6 +402,14 @@ td .btn-danger {
     }
 
     #cons-table-mobile {
+        display: none;
+    }
+
+    #user-card-mobile {
+        display: block;
+    }
+
+    #user-table-mobile {
         display: none;
     }
 }

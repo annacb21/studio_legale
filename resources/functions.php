@@ -552,5 +552,10 @@ function editPost($id) {
     } 
 }
 
+// add new user
+function addUser() {
+    
+}
+
 
 ?>
