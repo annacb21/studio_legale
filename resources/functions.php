@@ -511,8 +511,21 @@ function addPost() {
         confirm($query);
         set_message("Post pubblicato con successo", "alert-success");
         redirect("index.php?post");
-
     }
+}
+
+// edit post
+function editPost($id) {
+    if(isset($_POST['editPost'])) {
+        $titolo = escape_string($_POST['titolo']);
+        $cat = escape_string($_POST['categoria']);
+        $testo = escape_string($_POST['testo']);
+
+        $query = query("UPDATE post SET titolo = '{$titolo}', cat_id = '{$cat}', testo = '{$testo}' WHERE id = $id");
+        confirm($query);
+        set_message("Post modificato con successo", "alert-success");
+        redirect("index.php?edit-post&id={$id}");
+    } 
 }
 
 

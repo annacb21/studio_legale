@@ -73,3 +73,4 @@ if(isset($_GET['id'])) {
 
 <script src="https://cdn.tiny.cloud/1/vucbpm5krf4dg1gnij1tc4opj2wlgcqa8f8l0grw3xr4zkga/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="../js/textEditor.js"></script>
+<script src="../js/validate.js"></script>
