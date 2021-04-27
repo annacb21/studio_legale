@@ -84,26 +84,14 @@ while($row = fetch_array($post_query)) {
 </main>
 
 <script src="https://cdn.tiny.cloud/1/vucbpm5krf4dg1gnij1tc4opj2wlgcqa8f8l0grw3xr4zkga/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="../js/textEditor.js"></script>
+<script src="../js/validate.js"></script>
 <script>
-    tinymce.init({
-    selector: '#testo',
-    plugins: [
-        "advlist autolink lists link image charmap print preview anchor paste",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste"
-    ],
-    toolbar: "insertfile undo redo paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-    entities: "160,nbsp",
-    entity_encoding: "named",
-    entity_encoding: "raw"
-    });
-
     function toggle_post_form() {
-       var form = document.getElementById("add-post-form");
-       if(form.style.display == 'block')
+        var form = document.getElementById("add-post-form");
+        if(form.style.display == 'block')
             form.style.display = 'none';
-       else
+        else
             form.style.display = 'block';
     }
 </script>
-<script src="../js/validate.js"></script>
