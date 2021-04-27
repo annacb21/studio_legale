@@ -1,5 +1,5 @@
 tinymce.init({
-    selector: '#testo',
+    selector: 'textarea',
     plugins: [
         "advlist autolink lists link image charmap print preview anchor paste",
         "searchreplace visualblocks code fullscreen",
