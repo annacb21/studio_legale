@@ -34,7 +34,7 @@ if(isset($_GET['id'])) {
 }
 ?>
 
-<main class="edit-post-main">
+<main>
     <!-- BREADCRUMB -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
